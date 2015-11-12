@@ -2,5 +2,10 @@
 'use strict';
 
 module.exports = {
-  name: 'embric'
+  name: 'embric',
+  
+  isDevelopingAddon: function() {
+    return true;
+  }
+  
 };
