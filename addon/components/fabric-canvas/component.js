@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import fabric from 'fabric';
 
 export default Ember.Component.extend({
   tagName: "canvas",
