@@ -1,6 +1,6 @@
 /*jshint node:true*/
 module.exports = {
-  description: '',
+  description: 'installs embric',
 
   normalizeEntityName: function() {
     // this prevents an error when the entityName is
@@ -8,6 +8,6 @@ module.exports = {
     // to us
   },
   afterInstall: function(options) {
-    return this.addBowerPackageToProject('fabric.js');
+    return this.addBowerPackageToProject('fabric');
   }
 };

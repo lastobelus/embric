@@ -1,7 +1,4 @@
 import Ember from 'ember';
-import layout from './template';
-
-var computed = Ember.computed;
 
 export default Ember.Component.extend({
   tagName: "canvas",
