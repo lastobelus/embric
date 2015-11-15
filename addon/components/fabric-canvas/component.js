@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import fabric from 'fabric';
 
 export default Ember.Component.extend({
   tagName: "canvas",
@@ -10,7 +9,7 @@ export default Ember.Component.extend({
   defaultWidth: "700",
   
   didInsertElement() {
-    let canvas = new fabric.Canvas(this.get('elementId'));
+    let canvas = new window.fabric.Canvas(this.get('elementId'));
     this.set('fabricCanvas', canvas);
   }
 });
