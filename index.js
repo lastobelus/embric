@@ -6,6 +6,11 @@ module.exports = {
   
   isDevelopingAddon: function() {
     return true;
-  }
+  },
   
+  included: function(app) {
+      this._super.included(app);
+
+      app.import(app.bowerDirectory + '/fabric.js/dist/fabric.js');
+    }
 };

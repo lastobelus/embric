@@ -10,4 +10,9 @@ export default Ember.Component.extend({
   width: Ember.computed.oneWay('defaultWidth'),
   defaultHeight: "500",
   defaultWidth: "700",
+  
+  didInsertElement() {
+    let canvas = new fabric.Canvas(this.get('elementId'));
+    this.set('fabricCanvas', canvas);
+  }
 });
