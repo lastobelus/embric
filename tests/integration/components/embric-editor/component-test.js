@@ -13,12 +13,12 @@ moduleForComponent('embric-editor', 'Integration | Component | embric editor', {
 test('it renders', function(assert) {
   assert.expect(3);
   // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });" + EOL + EOL +
+  // Handle any actions with this.on('myAction', function(val) { ... });"
 
   this.render(hbs`{{embric-editor}}`);
 
   assert.pageHasElement('.embric-editor', 'should render');
-  
+
   this.render(hbs`
     {{#embric-editor checkAttr="visibleInBlock" as |editor|}}
       {{editor.checkAttr}}
@@ -26,5 +26,5 @@ test('it renders', function(assert) {
   `);
 
   assert.pageHasElement('.embric-editor', 'should render');
-  assert.pageHasText('visibleInBlock', "it should yield itself to block");
+  assert.pageHasText('visibleInBlock', 'it should yield itself to block');
 });
