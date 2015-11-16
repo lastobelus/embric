@@ -17,8 +17,10 @@ export default Ember.Component.extend({
   }),
 
   _setupFabric() {
-    let canvas = new window.fabric.Canvas(this.get('elementId'));
-    this.set('fabricCanvas', canvas);
+    if (Ember.isEmpty(this.get('fabricCanvas'))) {
+      let canvas = new window.fabric.Canvas(this.get('elementId'));
+      this.set('fabricCanvas', canvas);
+    }
     this.get('editor').send('registerCanvas', this);
   }
 });
