@@ -4,5 +4,5 @@
 </div>
 <div class="embric-control-control">
   <button {{action 'getJSON'}} class="get-json-button">Get</button>
-  <button {{action 'setJSON'}} class="set-json-button">Set</button>
+  <button {{action (action 'setJSON' json target=editor)}} class="set-json-button">Set</button>
 </div>

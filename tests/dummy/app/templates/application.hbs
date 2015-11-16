@@ -5,13 +5,12 @@
   <div class="editor-controls-panel">
     <h3 class="subdued">Controls</h3>
     <div class="control-column">
-      {{embric-json-loader editor=editor}}
+      {{embric-fill-stroke-editor editor=editor}}
     </div>
     <div class="control-column">
-      bob
     </div>
     <div class="control-column">
-      mary
+      {{embric-json-loader editor=editor json=model.startJSON}}
     </div>
   </div>
 {{/embric-editor}}

@@ -23,18 +23,16 @@ let MockEditor = Ember.Component.extend({
 });
 
 test('it renders', function(assert) {
-
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });" + EOL + EOL +
-
-  this.render(hbs`{{embric-json-loader}}`);
+  this.set('mockEditor', MockEditor.create());
+  this.render(hbs`{{embric-json-loader editor=mockEditor}}`);
 
   assert.pageHasText('JSON Loader');
 
 });
 
 test('it sets label for correctly', function(assert) {
-  this.render(hbs`{{embric-json-loader id="my-loader"}}`);
+  this.set('mockEditor', MockEditor.create());
+  this.render(hbs`{{embric-json-loader editor=mockEditor id="my-loader"}}`);
 
   assert.pageHasElement('textarea#my-loader-textarea');
   assert.pageHasElement('label[for=my-loader-textarea]');
@@ -43,18 +41,17 @@ test('it sets label for correctly', function(assert) {
 
 test('it gets json', function(assert) {
   this.set('mockEditor', MockEditor.create());
-
   this.render(hbs`{{embric-json-loader editor=mockEditor id="my-loader"}}`);
   this.$('#my-loader button.get-json-button').click();
+
   assert.equal(this.$('#my-loader-textarea').val(), 'mock json', 'clicking get button should put editor.currentCanvasJSON in the textarea');
 });
 
 test('it sets json', function(assert) {
   this.set('mockEditor', MockEditor.create());
-
   this.render(hbs`{{embric-json-loader editor=mockEditor id="my-loader"}}`);
   this.$('#my-loader-textarea').text('bobs cool json').change();
-  assert.equal(this.$('#my-loader-textarea').val(), 'bobs cool json');
   this.$('#my-loader button.set-json-button').click();
+
   assert.equal(this.get('mockEditor.json'), 'bobs cool json', 'clicking set button should put json in the textarea in editor.json');
 });

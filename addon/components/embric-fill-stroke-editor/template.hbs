@@ -1,0 +1,12 @@
+<label class="embric-control-main-label">{{name}}</label>
+<div class="embric-control-input right">
+  <label for={{concat elementId '-fill-color'}} class="embric-control-label">Fill Color
+    <input id={{concat elementId '-fill-color'}} class="embric-color-input" type="color" value={{fill}}
+    oninput={{action (action 'setActiveProperty' 'fill' target=editor) value="target.value"}}>
+  </label>
+</div>
+<div class="embric-control-input right">
+  <label for={{concat elementId '-fill-color'}} class="embric-control-label">Stroke Color
+    {{input id=(concat elementId '-stroke-color') class="embric-color-input" type="color" value=strokeColor}}
+  </label>
+</div>
