@@ -4,19 +4,19 @@ import hbs from 'htmlbars-inline-precompile';
 
 import { assertionInjector } from 'dummy/tests/assertions';
 
+moduleForComponent('fabric-canvas', 'Integration | Component | fabric canvas', {
+  integration: true,
+  beforeEach() {
+    assertionInjector(this);
+  }
+});
+
 let MockEditor = Ember.Component.extend({
   registered: null,
   actions: {
     registerCanvas(fabricCanvas) {
       this.set('registered', fabricCanvas);
     }
-  }
-});
-
-moduleForComponent('fabric-canvas', 'Integration | Component | fabric canvas', {
-  integration: true,
-  beforeEach() {
-    assertionInjector(this);
   }
 });
 

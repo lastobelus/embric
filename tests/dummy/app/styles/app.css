@@ -4,7 +4,7 @@ body {
   color: #0D1F30;
 }
 
-.fabric-canvas-container {
+.canvas-container {
   border: 1px solid #8BADA3;
   background-color: white;
 }
@@ -15,7 +15,8 @@ body {
   width: 602px;
   margin-top: 1px;
   box-sizing: border-box;
-  padding: 0 10px 10px 10px;
+  padding: 0 0 10px 10px;
+  overflow: auto;
 }
 
 .subdued {
@@ -28,4 +29,41 @@ body {
   width: 602px;
   box-sizing: content-box;
   padding: 0 20px 20px 20px;
+}
+
+.embric-control {
+  border: 1px solid #8BADA3;
+  background-color: white;
+  box-sizing: content-box;
+}
+
+.embric-control > label.embric-control-main-label {
+  display: block;
+  background-color: #8BADA3;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  padding: 1px 5px;
+  margin-bottom: 2px;
+}
+.embric-control-input {
+  padding: 1px 2px;
+}
+
+.embric-control-control {
+  padding: 1px 2px;
+  text-align: right;
+}
+
+.control-column {
+  width:31%;
+  margin-right: 10px;
+  float: left;
+}
+
+.embric-control-json-loader textarea {
+  display: block;
+  max-width: 96%;
+  width: 96%;
+  height: 120px;
 }
