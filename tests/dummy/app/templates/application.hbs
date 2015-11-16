@@ -1,3 +1,10 @@
 <h2 id="title">Embric Demo</h2>
-{{fabric-canvas height=800 width=1000}}
+{{#embric-editor as |editor| }}
+  <h2 class="subdued">Editor</h2>
+  {{fabric-canvas width=600 height=400 editor=editor }}
+  <div class="editor-controls-panel">
+    <h3 class="subdued">Controls</h3>
+  </div>
+{{/embric-editor}}
 {{outlet}}
+

@@ -1,0 +1,31 @@
+body {
+  background-color: #F0E3C0;
+  font-family: Helvetica;
+  color: #0D1F30;
+}
+
+.fabric-canvas-container {
+  border: 1px solid #8BADA3;
+  background-color: white;
+}
+
+.editor-controls-panel {
+  border: 1px solid #8BADA3;
+  background-color: #F0E3C0;
+  width: 602px;
+  margin-top: 1px;
+  box-sizing: border-box;
+  padding: 0 10px 10px 10px;
+}
+
+.subdued {
+  color: #8BADA3;  
+}
+
+.embric-editor {
+  border: 1px solid #8BADA3;
+  background-color: #E3D7B6;
+  width: 602px;
+  box-sizing: content-box;
+  padding: 0 20px 20px 20px;
+}
