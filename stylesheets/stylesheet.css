@@ -1,16 +1,27 @@
+/*
+DarkBue     #0D1F30
+MedAqua     #3B6670
+PaleAqua    #8BADA3
+Beige       #F0E3C0
+MedBeige    #E3D7B6
+DarkerBeige #CCC1A3
+MedOrange   #DB6C0F
+
+
+*/
 * {
   box-sizing: border-box; }
 
 body {
   padding: 0;
   margin: 0;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  color: #606c71; }
+  color: #0D1F30; }
 
 a {
-  color: #1e6bb8;
+  color: #8BADA3;
   text-decoration: none; }
   a:hover {
     text-decoration: underline; }
@@ -32,7 +43,9 @@ a {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   background-color: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.3); }
+  border-color: rgba(255, 255, 255, 0.3);
+  border-color: #DB6C0F;
+}
 
 @media screen and (min-width: 64em) {
   .btn {
@@ -56,8 +69,10 @@ a {
 .page-header {
   color: #fff;
   text-align: center;
-  background-color: #159957;
-  background-image: linear-gradient(120deg, #155799, #159957); }
+  background-color: #0D1F30;
+  background-image: linear-gradient(120deg, #0D1F30, #3B6670);
+  border-bottom: 1px solid #DB6C0F;
+}
 
 @media screen and (min-width: 64em) {
   .page-header {
@@ -112,31 +127,31 @@ a {
   margin-top: 2rem;
   margin-bottom: 1rem;
   font-weight: normal;
-  color: #159957; }
+  color: #DB6C0F; }
 .main-content p {
   margin-bottom: 1em; }
 .main-content code {
   padding: 2px 4px;
-  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-family: "Roboto Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace;
   font-size: 0.9rem;
-  color: #383e41;
-  background-color: #f3f6fa;
+  color: #0D1F30;
+  background-color: #CCC1A3;
   border-radius: 0.3rem; }
 .main-content pre {
   padding: 0.8rem;
   margin-top: 0;
   margin-bottom: 1rem;
-  font: 1rem Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  color: #567482;
+  font: 1rem "Roboto Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  color: #0D1F30;
   word-wrap: normal;
-  background-color: #f3f6fa;
-  border: solid 1px #dce6f0;
+  background-color: #CCC1A3;
+  border: solid 1px #0D1F30;
   border-radius: 0.3rem; }
   .main-content pre > code {
     padding: 0;
     margin: 0;
     font-size: 0.9rem;
-    color: #567482;
+    color: #8BADA3;
     word-break: normal;
     white-space: pre;
     background: transparent;
@@ -169,8 +184,8 @@ a {
 .main-content blockquote {
   padding: 0 1rem;
   margin-left: 0;
-  color: #819198;
-  border-left: 0.3rem solid #dce6f0; }
+  color: #8BADA3;
+  border-left: 0.3rem solid #DB6C0F; }
   .main-content blockquote > :first-child {
     margin-top: 0; }
   .main-content blockquote > :last-child {
@@ -185,7 +200,7 @@ a {
     font-weight: bold; }
   .main-content table th, .main-content table td {
     padding: 0.5rem 1rem;
-    border: 1px solid #e9ebec; }
+    border: 1px solid #CCC1A3; }
 .main-content dl {
   padding: 0; }
   .main-content dl dt {
@@ -200,7 +215,7 @@ a {
   height: 2px;
   padding: 0;
   margin: 1rem 0;
-  background-color: #eff0f1;
+  background-color: #3B6670;
   border: 0; }
 
 @media screen and (min-width: 64em) {
@@ -223,14 +238,15 @@ a {
 .site-footer {
   padding-top: 2rem;
   margin-top: 2rem;
-  border-top: solid 1px #eff0f1; }
+  border-top: solid 1px #8BADA3; }
 
 .site-footer-owner {
   display: block;
   font-weight: bold; }
 
 .site-footer-credits {
-  color: #819198; }
+  font-weight: 300;
+  color: #3B6670; }
 
 @media screen and (min-width: 64em) {
   .site-footer {
@@ -243,3 +259,15 @@ a {
 @media screen and (max-width: 42em) {
   .site-footer {
     font-size: 0.9rem; } }
+
+.callout {
+  font-weight: 500;
+}
+
+.callout-orange {
+  color: #DB6C0F;
+}
+
+.callout-pale-aqua {
+  color: #8BADA3;
+}
