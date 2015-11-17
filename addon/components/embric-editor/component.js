@@ -21,7 +21,7 @@ export default Ember.Component.extend({
       let values = Ember.A(selection.objects).mapBy(name);
       let uniqueValues = Ember.A(values).uniq();
       if (uniqueValues.length === 1) {
-        return uniqueValues[0];
+        return uniqueValues[0] || '';
       } else {
         return '';
       }
@@ -36,6 +36,18 @@ export default Ember.Component.extend({
     let selection = canvas.getActiveGroup() || canvas.getActiveObject();
     this.set('selection', selection);
     canvas.renderAll();
+  },
+
+  propertyWriteParsers: {
+    string: (x) => {
+      return x;
+    },
+    int: (x) => {
+      return parseInt(x, 10);
+    },
+    float: (x) => {
+      return parseFloat(x, 10);
+    }
   },
 
   actions: {
@@ -59,18 +71,23 @@ export default Ember.Component.extend({
       });
     },
 
-    setActiveProperty(name, value) {
+    setActiveProperty(nameAndType, value) {
+      console.log('nameAndType: ', nameAndType, 'value: ', value);
       let selection = this.get('selection');
       if (!selection) {
         return '';
       }
+      let [propName, parserName] = nameAndType.split('|');
+      parserName = parserName || 'string';
+      let parser = this.propertyWriteParsers[parserName];
       let selectionType = selection.get('type');
+      let parsedValue = parser(value);
       if (selectionType === 'group') {
         for (let object of selection.objects) {
-          object.set(name, value).setCoords();
+          object.set(propName, parsedValue).setCoords();
         }
       } else {
-        selection.set(name, value).setCoords();
+        selection.set(propName, parsedValue).setCoords();
       }
 
       let canvas = this.get('currentCanvas.fabricCanvas');

@@ -5,8 +5,20 @@
     oninput={{action (action 'setActiveProperty' 'fill' target=editor) value="target.value"}}>
   </label>
 </div>
+
 <div class="embric-control-input right">
-  <label for={{concat elementId '-fill-color'}} class="embric-control-label">Stroke Color
-    {{input id=(concat elementId '-stroke-color') class="embric-color-input" type="color" value=strokeColor}}
+  <label for={{concat elementId '-stroke-width'}} class="embric-control-label">Stroke Width
+    <input id={{concat elementId '-stroke-width'}} class="embric-points-input"
+    type="number" min="0" value={{strokeWidth}}
+    oninput={{action (action 'setActiveProperty' 'strokeWidth|float' target=editor) value="target.value"}}>
   </label>
 </div>
+
+<div class="embric-control-input right">
+  <label for={{concat elementId '-stroke-color'}} class="embric-control-label">Stroke Color
+    <input id={{concat elementId '-stroke-color'}} class="embric-color-input" 
+    type="color" value={{stroke}}
+    oninput={{action (action 'setActiveProperty' 'stroke' target=editor) value="target.value"}}>
+  </label>
+</div>
+

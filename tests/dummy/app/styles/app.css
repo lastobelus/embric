@@ -88,7 +88,7 @@ label.embric-control-label {
   height: 120px;
 }
 
-.embric-color-input {
+.embric-color-input, .embric-points-input {
   width: 50px;
   float:right;
 }
