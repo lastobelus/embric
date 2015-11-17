@@ -5,7 +5,7 @@ export default Ember.Component.extend({
   layout,
   classNames: ['embric-control', 'embric-control-fill-stroke'],
   fill: Ember.computed('editor.selection', {
-    get(key) {
+    get() {
       return this.get('editor').getActiveProperty('fill');
     }
   }),
