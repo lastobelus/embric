@@ -25,7 +25,10 @@ function groupSelection() {
         same: 'red',
         notSame: 'purple'
       }
-    ]
+    ],
+    getObjects() {
+      return this.objects;
+    }
   };
 }
 

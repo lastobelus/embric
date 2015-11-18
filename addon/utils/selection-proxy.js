@@ -12,14 +12,22 @@ let FabricPropertyParsers = {
 export default Ember.Object.extend({
   selection: null,
   changeHandler: null,
-  unknownProperty(key) {
-    let selection = this.get('selection');
-    if (Ember.isEmpty(selection)) {
-      return '';
+  selectionType: Ember.computed('selection', {
+    get() {
+      let selection = this.get('selection');
+      if (Ember.isEmpty(selection)) {
+        return 'empty';
+      }
+      return Ember.get(selection, 'type');
     }
-    let selectionType = Ember.get(selection, 'type');
-    if (selectionType === 'group') {
-      let values = Ember.A(selection.objects).mapBy(key);
+  }),
+
+  isGroup: Ember.computed.equal('selectionType', 'group'),
+
+  unknownProperty(key) {
+    if (this.get('isGroup')) {
+      let objects = this.get('objects');
+      let values = objects.mapBy(key);
       let uniqueValues = Ember.A(values).uniq();
       if (uniqueValues.length === 1) {
         return uniqueValues[0] || '';
@@ -27,19 +35,18 @@ export default Ember.Object.extend({
         return '';
       }
     } else {
+      let selection = this.get('selection');
       return Ember.get(selection, key);
     }
   },
-
   setUnknownProperty(keyWithParser, value) {
     let selection = this.get('selection');
     if (Ember.isEmpty(selection)) {
       return '';
     }
-    let selectionType = Ember.get(selection, 'type');
-    let objects = (selectionType === 'group') ? selection.objects : [selection];
+    let objects = this.get('objects');
     let [key, parsedValue] = this.parsedValueForKey(keyWithParser, value);
-    Ember.A(objects).forEach(function(obj) {
+    objects.forEach(function(obj) {
       Ember.set(obj, key, parsedValue);
     });
     let changeHandler = this.get('changeHandler');
@@ -48,7 +55,6 @@ export default Ember.Object.extend({
     }
     return parsedValue;
   },
-
   parsedValueForKey(key, value) {
     let keyParts = key.split('-');
     if (keyParts.length < 2) {
@@ -61,5 +67,13 @@ export default Ember.Object.extend({
     } else {
       return [key, value];
     }
-  }
+  },
+  objects: Ember.computed('selection', {
+    get() {
+      let selection = this.get('selection');
+      let isGroup = this.get('isGroup');
+      let objects = isGroup ? selection.getObjects() : [selection];
+      return Ember.A(objects);
+    }
+  })
 });
