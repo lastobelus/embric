@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-let   FabricPropertyParsers = {
+let FabricPropertyParsers = {
   asInt: (x) => {
     return parseInt(x, 10);
   },
@@ -17,7 +17,7 @@ export default Ember.Object.extend({
     if (Ember.isEmpty(selection)) {
       return '';
     }
-    let selectionType = selection.get('type');
+    let selectionType = Ember.get(selection, 'type');
     if (selectionType === 'group') {
       let values = Ember.A(selection.objects).mapBy(key);
       let uniqueValues = Ember.A(values).uniq();
@@ -36,7 +36,7 @@ export default Ember.Object.extend({
     if (Ember.isEmpty(selection)) {
       return '';
     }
-    let selectionType = selection.get('type');
+    let selectionType = Ember.get(selection, 'type');
     let objects = (selectionType === 'group') ? selection.objects : [selection];
     let [key, parsedValue] = this.parsedValueForKey(keyWithParser, value);
     Ember.A(objects).forEach(function(obj) {
@@ -51,14 +51,12 @@ export default Ember.Object.extend({
 
   parsedValueForKey(key, value) {
     let keyParts = key.split('-');
-    console.log('keyParts: ', keyParts);
     if (keyParts.length < 2) {
       return [key, value];
     }
     let parser = FabricPropertyParsers[keyParts[keyParts.length - 1]];
     if (parser) {
       keyParts.pop();
-      console.log('now keyParts: ', keyParts);
       return [keyParts.join('.'), parser(value)];
     } else {
       return [key, value];
