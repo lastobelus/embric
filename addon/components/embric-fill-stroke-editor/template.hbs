@@ -1,24 +1,32 @@
 <label class="embric-control-main-label">{{name}}</label>
 <div class="embric-control-input right">
   <label for={{concat elementId '-fill-color'}} class="embric-control-label">Fill Color
-    <input id={{concat elementId '-fill-color'}} class="embric-color-input" type="color" value={{fill}}
-    oninput={{action (action 'setActiveProperty' 'fill' target=editor) value="target.value"}}>
+
+    <input  id={{concat elementId '-fill-color'}} class="embric-color-input" type="color" 
+      value={{editor.selection.fill}} 
+      oninput={{action (mut editor.selection.fill) value="target.value"}}>
+
   </label>
 </div>
 
+
 <div class="embric-control-input right">
   <label for={{concat elementId '-stroke-width'}} class="embric-control-label">Stroke Width
+
     <input id={{concat elementId '-stroke-width'}} class="embric-points-input"
-    type="number" min="0" value={{strokeWidth}}
-    oninput={{action (action 'setActiveProperty' 'strokeWidth|float' target=editor) value="target.value"}}>
+    type="number" min="0" value={{editor.selection.strokeWidth}}
+    oninput={{action (mut editor.selection.strokeWidth-asFloat) value="target.value"}}>
+
   </label>
 </div>
 
 <div class="embric-control-input right">
   <label for={{concat elementId '-stroke-color'}} class="embric-control-label">Stroke Color
+
     <input id={{concat elementId '-stroke-color'}} class="embric-color-input" 
-    type="color" value={{stroke}}
-    oninput={{action (action 'setActiveProperty' 'stroke' target=editor) value="target.value"}}>
+    type="color" value={{editor.selection.stroke}}
+    oninput={{action (mut editor.selection.stroke) value="target.value"}}>
+
   </label>
 </div>
 

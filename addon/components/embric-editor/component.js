@@ -1,6 +1,72 @@
 import Ember from 'ember';
 import layout from './template';
 
+let   FabricPropertyParsers = {
+  asInt: (x) => {
+    return parseInt(x, 10);
+  },
+  asFloat: (x) => {
+    return parseFloat(x, 10);
+  }
+};
+
+let Selection = Ember.Object.extend ({
+  selection: null,
+  changeHandler: null,
+  unknownProperty(key) {
+    let selection = this.get('selection');
+    if (Ember.isEmpty(selection)) {
+      return '';
+    }
+    let selectionType = selection.get('type');
+    if (selectionType === 'group') {
+      let values = Ember.A(selection.objects).mapBy(key);
+      let uniqueValues = Ember.A(values).uniq();
+      if (uniqueValues.length === 1) {
+        return uniqueValues[0] || '';
+      } else {
+        return '';
+      }
+    } else {
+      return Ember.get(selection, key);
+    }
+  },
+
+  setUnknownProperty(keyWithParser, value) {
+    let selection = this.get('selection');
+    if (Ember.isEmpty(selection)) {
+      return '';
+    }
+    let selectionType = selection.get('type');
+    let objects = (selectionType === 'group') ? selection.objects : [selection];
+    let [key, parsedValue] = this.parsedValueForKey(keyWithParser, value);
+    Ember.A(objects).forEach(function(obj) {
+      Ember.set(obj, key, parsedValue);
+    });
+    let changeHandler = this.get('changeHandler');
+    if(changeHandler) {
+      changeHandler();
+    }
+    return parsedValue;
+  },
+  
+  parsedValueForKey(key, value) {
+    let keyParts = key.split('-');
+    console.log('keyParts: ', keyParts);
+    if ( keyParts.length < 2 ) {
+      return [key, value];
+    }
+    let parser = FabricPropertyParsers[keyParts[keyParts.length-1]];
+    if (  parser ) {
+      keyParts.pop();
+      console.log('now keyParts: ', keyParts);
+      return [keyParts.join('.'), parser(value)];
+    } else {
+      return [key, value];
+    }
+  }
+});
+
 export default Ember.Component.extend({
   layout,
   currentCanvas: null,
@@ -10,44 +76,20 @@ export default Ember.Component.extend({
     let json = JSON.stringify(canvas);
     return json;
   },
-
-  getActiveProperty(name) {
-    let selection = this.get('selection');
-    if (!selection) {
-      return '';
-    }
-    let selectionType = selection.get('type');
-    if (selectionType === 'group') {
-      let values = Ember.A(selection.objects).mapBy(name);
-      let uniqueValues = Ember.A(values).uniq();
-      if (uniqueValues.length === 1) {
-        return uniqueValues[0] || '';
-      } else {
-        return '';
-      }
-    } else {
-      return selection[name] || '';
-    }
-  },
+  redrawDebounce: 100,
+  
   selection: null,
-
   _updateSelection() {
     let canvas = this.get('currentCanvas.fabricCanvas');
     let selection = canvas.getActiveGroup() || canvas.getActiveObject();
-    this.set('selection', selection);
+    this.set('selection', Selection.create({selection, changeHandler: () =>{
+      Ember.run.debounce(this, '_redraw', this.get('redrawDebounce'), false);
+    }}));
     canvas.renderAll();
   },
-
-  propertyWriteParsers: {
-    string: (x) => {
-      return x;
-    },
-    int: (x) => {
-      return parseInt(x, 10);
-    },
-    float: (x) => {
-      return parseFloat(x, 10);
-    }
+  _redraw() {
+    let canvas = this.get('currentCanvas.fabricCanvas');
+    canvas.renderAll();
   },
 
   actions: {
@@ -70,29 +112,6 @@ export default Ember.Component.extend({
         canvas.renderAll();
       });
     },
-
-    setActiveProperty(nameAndType, value) {
-      console.log('nameAndType: ', nameAndType, 'value: ', value);
-      let selection = this.get('selection');
-      if (!selection) {
-        return '';
-      }
-      let [propName, parserName] = nameAndType.split('|');
-      parserName = parserName || 'string';
-      let parser = this.propertyWriteParsers[parserName];
-      let selectionType = selection.get('type');
-      let parsedValue = parser(value);
-      if (selectionType === 'group') {
-        for (let object of selection.objects) {
-          object.set(propName, parsedValue).setCoords();
-        }
-      } else {
-        selection.set(propName, parsedValue).setCoords();
-      }
-
-      let canvas = this.get('currentCanvas.fabricCanvas');
-      canvas.renderAll();
-    }
 
   }
 });
