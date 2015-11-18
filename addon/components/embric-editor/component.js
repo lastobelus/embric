@@ -10,7 +10,7 @@ let   FabricPropertyParsers = {
   }
 };
 
-let Selection = Ember.Object.extend ({
+let Selection = Ember.Object.extend({
   selection: null,
   changeHandler: null,
   unknownProperty(key) {
@@ -44,20 +44,20 @@ let Selection = Ember.Object.extend ({
       Ember.set(obj, key, parsedValue);
     });
     let changeHandler = this.get('changeHandler');
-    if(changeHandler) {
+    if (changeHandler) {
       changeHandler();
     }
     return parsedValue;
   },
-  
+
   parsedValueForKey(key, value) {
     let keyParts = key.split('-');
     console.log('keyParts: ', keyParts);
-    if ( keyParts.length < 2 ) {
+    if (keyParts.length < 2) {
       return [key, value];
     }
-    let parser = FabricPropertyParsers[keyParts[keyParts.length-1]];
-    if (  parser ) {
+    let parser = FabricPropertyParsers[keyParts[keyParts.length - 1]];
+    if (parser) {
       keyParts.pop();
       console.log('now keyParts: ', keyParts);
       return [keyParts.join('.'), parser(value)];
@@ -77,7 +77,7 @@ export default Ember.Component.extend({
     return json;
   },
   redrawDebounce: 100,
-  
+
   selection: null,
   _updateSelection() {
     let canvas = this.get('currentCanvas.fabricCanvas');
@@ -111,7 +111,6 @@ export default Ember.Component.extend({
       canvas.loadFromJSON(json, () => {
         canvas.renderAll();
       });
-    },
-
+    }
   }
 });
