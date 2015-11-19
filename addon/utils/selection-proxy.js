@@ -53,6 +53,7 @@ export default Ember.Object.extend({
     if (changeHandler) {
       changeHandler();
     }
+    this.notifyPropertyChange(key);
     return parsedValue;
   },
   parsedValueForKey(key, value) {

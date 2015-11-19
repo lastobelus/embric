@@ -1,0 +1,10 @@
+<label class="embric-control-main-label">{{name}}</label>
+<div class="embric-control-input right">
+  <label>
+    <button class="delete-selection-button"
+     id={{concat elementId "-delete-selection"}}
+    {{action (action 'deleteSelection' animate target=editor)}}>
+      Delete
+    </button>
+  </label>
+</div>

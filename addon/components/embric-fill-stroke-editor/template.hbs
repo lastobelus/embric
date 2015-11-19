@@ -2,8 +2,8 @@
 <div class="embric-control-input right">
   <label for={{concat elementId '-fill-color'}} class="embric-control-label">Fill Color
 
-    <input  id={{concat elementId '-fill-color'}} class="embric-color-input" type="color" 
-      value={{editor.selection.fill}} 
+    <input  id={{concat elementId '-fill-color'}} class="embric-color-input" type="color"
+      value={{editor.selection.fill}}
       oninput={{action (mut editor.selection.fill) value="target.value"}}>
 
   </label>
@@ -23,7 +23,7 @@
 <div class="embric-control-input right">
   <label for={{concat elementId '-stroke-color'}} class="embric-control-label">Stroke Color
 
-    <input id={{concat elementId '-stroke-color'}} class="embric-color-input" 
+    <input id={{concat elementId '-stroke-color'}} class="embric-color-input"
     type="color" value={{editor.selection.stroke}}
     oninput={{action (mut editor.selection.stroke) value="target.value"}}>
 
