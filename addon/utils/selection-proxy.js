@@ -32,12 +32,12 @@ export default Ember.Object.extend({
     let selection = this.get('selection');
     return this._uniqueProperty(selection, key);
   },
-  _uniqueProperty(obj, key){
+  _uniqueProperty(obj, key) {
     if (Ember.get(obj, 'type') === 'group') {
       let objects = obj.getObjects();
       let unique = Ember.get(objects[0], key);
-      if(unique) {
-        for (var i = objects.length - 1; i > 0; i--) {
+      if (unique) {
+        for (let i = objects.length - 1; i > 0; i--) {
           if (unique !== this._uniqueProperty(objects[i], key)) {
             return '';
           }
@@ -94,9 +94,12 @@ export default Ember.Object.extend({
         return [];
       }
       let selection = this.get('selection');
-      let isGroup = this.get('isGroup') || this.get('isMulti');
-      let objects = isGroup ? selection.getObjects() : [selection];
-      return Ember.A(objects);
+
+      if (this.get('isMulti')) {
+        return selection.getObjects();
+      } else {
+        return [selection];
+      }
     }
   }).volatile()
 });

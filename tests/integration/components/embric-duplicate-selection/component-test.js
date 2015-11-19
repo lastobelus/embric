@@ -4,7 +4,7 @@ import Ember from 'ember';
 
 import { assertionInjector } from 'dummy/tests/assertions';
 
-moduleForComponent('embric-delete-selection', 'Integration | Component | embric delete selection', {
+moduleForComponent('embric-duplicate-selection', 'Integration | Component | embric duplicate selection', {
   integration: true,
   beforeEach() {
     assertionInjector(this);
@@ -20,8 +20,8 @@ function mockEditor(assert) {
       'strokeWidth-asFloat': 1.5
     }),
     actions: {
-      deleteSelection() {
-        assert.ok(true, 'deleteSelection action should be called');
+      duplicateSelection() {
+        assert.ok(true, 'duplicateSelection action should be called');
       }
     }
   });
@@ -30,7 +30,7 @@ function mockEditor(assert) {
 
 test('it renders', function(assert) {
   this.set('mockEditor', mockEditor(assert));
-  this.render(hbs`{{embric-delete-selection editor=mockEditor}}`);
+  this.render(hbs`{{embric-duplicate-selection editor=mockEditor}}`);
 
-  assert.pageHasText('Delete Selection');
+  assert.pageHasText('Duplicate Selection');
 });

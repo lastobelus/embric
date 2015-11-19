@@ -1,0 +1,10 @@
+<label class="embric-control-main-label">{{name}}</label>
+<div class="embric-control-input right">
+  <label>
+    <button class="duplicate-selection-button"
+     id={{concat elementId "-duplicate-selection"}}
+    {{action (action 'duplicateSelection' animate target=editor)}}>
+      Duplicate
+    </button>
+  </label>
+</div>
