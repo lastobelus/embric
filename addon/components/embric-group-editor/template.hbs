@@ -1,0 +1,17 @@
+<label class="embric-control-main-label">{{name}}</label>
+<div class="embric-control-input right">
+  <label>
+    <button class="unmake-group-button"
+     id={{concat elementId "-unmake-group-button"}}
+    {{action (action 'unMakeGroup' animate target=editor)}}>
+      Ungroup
+    </button>
+  </label>
+  <label>
+    <button class="make-group-button"
+     id={{concat elementId "-make-group-button"}}
+    {{action (action 'makeGroup' animate target=editor)}}>
+      Group
+    </button>
+  </label>
+</div>

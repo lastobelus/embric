@@ -12,8 +12,12 @@ let FabricPropertyParsers = {
 export default Ember.Object.extend({
   selection: null,
   changeHandler: null,
-  selectionType: Ember.computed('selection', {
+  isMulti: false,
+  selectionType: Ember.computed('isMulti', 'selection', {
     get() {
+      if (this.get('isMulti')) {
+        return 'multi';
+      }
       let selection = this.get('selection');
       if (Ember.isEmpty(selection)) {
         return 'empty';
@@ -21,40 +25,55 @@ export default Ember.Object.extend({
       return Ember.get(selection, 'type');
     }
   }),
-
   isGroup: Ember.computed.equal('selectionType', 'group'),
+  isEmpty: Ember.computed.equal('selectionType', 'empty'),
 
   unknownProperty(key) {
-    if (this.get('isGroup')) {
-      let objects = this.get('objects');
-      let values = objects.mapBy(key);
-      let uniqueValues = Ember.A(values).uniq();
-      if (uniqueValues.length === 1) {
-        return uniqueValues[0] || '';
+    let selection = this.get('selection');
+    return this._uniqueProperty(selection, key);
+  },
+  _uniqueProperty(obj, key){
+    if (Ember.get(obj, 'type') === 'group') {
+      let objects = obj.getObjects();
+      let unique = Ember.get(objects[0], key);
+      if(unique) {
+        for (var i = objects.length - 1; i > 0; i--) {
+          if (unique !== this._uniqueProperty(objects[i], key)) {
+            return '';
+          }
+          return unique;
+        }
       } else {
         return '';
       }
     } else {
-      let selection = this.get('selection');
-      return Ember.get(selection, key);
+      return Ember.get(obj, key);
     }
   },
   setUnknownProperty(keyWithParser, value) {
     let selection = this.get('selection');
-    if (Ember.isEmpty(selection)) {
+    if (this.get('isEmpty')) {
       return '';
     }
-    let objects = this.get('objects');
     let [key, parsedValue] = this.parsedValueForKey(keyWithParser, value);
-    objects.forEach(function(obj) {
-      Ember.set(obj, key, parsedValue);
-    });
+    this._recursiveSetProperty(selection, key, parsedValue);
+
     let changeHandler = this.get('changeHandler');
     if (changeHandler) {
       changeHandler();
     }
     this.notifyPropertyChange(key);
     return parsedValue;
+  },
+  _recursiveSetProperty(obj, key, value) {
+    if (Ember.get(obj, 'type') === 'group') {
+      let objects = obj.getObjects();
+      objects.forEach((child) => {
+        this._recursiveSetProperty(child, key, value);
+      });
+    } else {
+      Ember.set(obj, key, value);
+    }
   },
   parsedValueForKey(key, value) {
     let keyParts = key.split('-');
@@ -69,12 +88,15 @@ export default Ember.Object.extend({
       return [key, value];
     }
   },
-  objects: Ember.computed('selection', {
+  objects: Ember.computed('selection', 'isEmpty', 'selectionType', {
     get() {
+      if (this.get('isEmpty')) {
+        return [];
+      }
       let selection = this.get('selection');
-      let isGroup = this.get('isGroup');
+      let isGroup = this.get('isGroup') || this.get('isMulti');
       let objects = isGroup ? selection.getObjects() : [selection];
       return Ember.A(objects);
     }
-  })
+  }).volatile()
 });

@@ -1,0 +1,1 @@
+export { default } from 'embric/components/embric-group-editor/component';

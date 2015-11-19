@@ -21,7 +21,7 @@ body {
 }
 
 .subdued {
-  color: #8BADA3;  
+  color: #8BADA3;
 }
 
 .editor-controls-panel .subdued {
@@ -42,9 +42,10 @@ body {
   background-color: white;
   box-sizing: content-box;
   overflow: auto;
+  margin-bottom: 10px;
 }
 .embric-control textarea {
-  color: #3B6670;  
+  color: #3B6670;
 }
 
 label.embric-control-main-label {
