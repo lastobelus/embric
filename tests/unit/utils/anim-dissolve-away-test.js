@@ -4,7 +4,7 @@ import { module, test } from 'qunit';
 module('Unit | Utility | anim dissolve away');
 
 // Replace this with your real tests.
-test('it works', function(assert) {
+test('it doesnt blow up', function(assert) {
   let rect = new window.fabric.Rect({
     left: 100,
     top: 100,
@@ -12,10 +12,10 @@ test('it works', function(assert) {
     width: 20,
     height: 20
   });
-  rect.canvas = {
+  let canvas = {
     renderAll() { },
     remove() { }
   };
-  let result = animDissolveAway(rect);
+  let result = animDissolveAway(canvas, rect);
   assert.ok(result);
 });

@@ -64,12 +64,12 @@ export default Ember.Component.extend({
     },
     deleteSelection(animate) {
       let canvas = this.get('currentCanvas.fabricCanvas');
-      let objects = this.get('selection').getObjects();
+      let objects = this.get('selection.objects');
       canvas.deactivateAll();
       this._updateSelection();
       objects.forEach(function(object) {
         if (animate) {
-          let [properties, animation] = animDissolveAway(object);
+          let [properties, animation] = animDissolveAway(canvas, object);
           object.animate(properties, animation);
         } else {
           canvas.remove(object);

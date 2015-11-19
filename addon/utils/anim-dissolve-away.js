@@ -1,5 +1,4 @@
-export default function animDissolveAway(object, duration = 250, howSmall = 8) {
-  let canvas = object.canvas;
+export default function animDissolveAway(canvas, object, duration = 250, howSmall = 8) {
   return [
     {
       opacity: 0,
