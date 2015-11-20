@@ -13,6 +13,10 @@ export default Ember.Object.extend({
   selection: null,
   changeHandler: null,
   isMulti: false,
+  isSingle: Ember.computed('selectionType', function() {
+    let selectionType = this.get('selectionType');
+    return (selectionType !== 'multi') && (selectionType !== 'empty');
+  }),
   selectionType: Ember.computed('isMulti', 'selection', {
     get() {
       if (this.get('isMulti')) {

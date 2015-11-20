@@ -2,6 +2,7 @@ import Ember from 'ember';
 import layout from './template';
 import SelectionProxy from 'embric/utils/selection-proxy';
 import  animDissolveAway from 'embric/utils/anim-dissolve-away';
+import  ZindexSupport from 'embric/mixins/zindex-support';
 
 function _emptySelection() {
   return Ember.Object.create({
@@ -9,7 +10,7 @@ function _emptySelection() {
   });
 }
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(ZindexSupport, {
   layout,
   currentCanvas: null,
   classNames: ['embric-editor'],
@@ -107,7 +108,7 @@ export default Ember.Component.extend({
     makeGroup() {
       let canvas = this.get('currentCanvas.fabricCanvas');
       let selection = this.get('selection');
-      if (!selection.get('isMulti')) {
+      if (selection.get('isSingle')) {
         return;
       }
       let objects = selection.get('objects');

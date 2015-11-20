@@ -13,7 +13,6 @@ body {
 .editor-controls-panel {
   border: 1px solid #0D1F30;
   background-color: #CCC1A3;
-  width: 602px;
   margin-top: 10px;
   box-sizing: border-box;
   padding: 0 0 10px 10px;
@@ -30,7 +29,7 @@ body {
 .embric-editor {
   border: 1px solid #8BADA3;
   background-color: #3B6670;
-  width: 602px;
+  width: 802px;
   box-sizing: content-box;
   padding: 0 20px 20px 20px;
   margin: auto;
@@ -101,3 +100,10 @@ label.embric-control-label {
 .right label {
   margin-right: 10px;
 }
+
+.embric-control-sections {
+  margin: 0;
+  padding: 0;
+}
+.embric-control-sections li:not(:first-child) {
+  border-top: 2px solid #8BADA3;

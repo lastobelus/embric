@@ -1,0 +1,39 @@
+<label class="embric-control-main-label">{{name}}</label>
+<ul class="embric-control-sections">
+  <li>
+    <div class="embric-control-input right">
+      <label>
+        <button class="move-to-front-button"
+         id={{concat elementId "-zindex-editor"}}
+        {{action (action 'moveSelectionToFront' animate target=editor)}}>
+          Bring To Front
+        </button>
+      </label>
+      <label>
+        <button class="move-forward-button"
+         id={{concat elementId "-zindex-editor"}}
+        {{action (action 'moveSelectionForward' animate target=editor)}}>
+          Bring Forward
+        </button>
+      </label>
+    </div>
+  </li>
+  <li>
+    <div class="embric-control-input right">
+      <label>
+        <button class="move-to-front-button"
+         id={{concat elementId "-zindex-editor"}}
+        {{action (action 'moveSelectionToBack' animate target=editor)}}>
+          Send To Back
+        </button>
+      </label>
+      <label>
+        <button class="move-backward-button"
+         id={{concat elementId "-zindex-editor"}}
+        {{action (action 'moveSelectionBackward' animate target=editor)}}>
+          Send Backward
+        </button>
+      </label>
+    </div>
+  </li>
+</ul>
