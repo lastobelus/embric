@@ -3,7 +3,6 @@ import layout from './template';
 import SelectionProxy from 'embric/utils/selection-proxy';
 import  animDissolveAway from 'embric/utils/anim-dissolve-away';
 import  ZindexSupport from 'embric/mixins/zindex-support';
-import  TextSupport from 'embric/mixins/text-support';
 
 function _emptySelection() {
   return Ember.Object.create({
@@ -15,7 +14,7 @@ function _emptySelection() {
   });
 }
 
-export default Ember.Component.extend(ZindexSupport, TextSupport, {
+export default Ember.Component.extend(ZindexSupport, {
   layout,
   currentCanvas: null,
   classNames: ['embric-editor'],

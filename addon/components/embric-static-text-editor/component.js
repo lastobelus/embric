@@ -1,7 +1,8 @@
 import Ember from 'ember';
 import layout from './template';
+import  TextSupport from 'embric/mixins/text-support';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(TextSupport, {
   layout,
   name: 'Basic Text',
   animate: true,
