@@ -3,14 +3,20 @@ import layout from './template';
 import SelectionProxy from 'embric/utils/selection-proxy';
 import  animDissolveAway from 'embric/utils/anim-dissolve-away';
 import  ZindexSupport from 'embric/mixins/zindex-support';
+import  ShapesSupport from 'embric/mixins/shapes-support';
+import  TextSupport from 'embric/mixins/text-support';
 
 function _emptySelection() {
   return Ember.Object.create({
-    type: 'empty'
+    type: 'empty',
+    fill: '#8BADA3',
+    stroke: '#0D1F30',
+    strokeWidth: 1,
+    opacity: 1.0
   });
 }
 
-export default Ember.Component.extend(ZindexSupport, {
+export default Ember.Component.extend(ZindexSupport, ShapesSupport, TextSupport, {
   layout,
   currentCanvas: null,
   classNames: ['embric-editor'],
@@ -19,11 +25,13 @@ export default Ember.Component.extend(ZindexSupport, {
     let json = JSON.stringify(canvas);
     return json;
   },
+  defaultProperties: _emptySelection(), // TODO: App prefs
   redrawDebounce: 100,
 
   selection: SelectionProxy.create({ selection: _emptySelection() }),
 
   _updateSelection() {
+    console.log('_updateSelection');
     let canvas = this.get('currentCanvas.fabricCanvas');
     let selection;
     let isMulti;

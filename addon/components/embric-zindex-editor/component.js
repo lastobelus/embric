@@ -5,5 +5,5 @@ export default Ember.Component.extend({
   layout,
   name: 'Arrange Objects',
   animate: true,
-  classNames: ['embric-control', 'embric-control-delete-selection']
+  classNames: ['embric-control', 'embric-zindex-editor']
 });

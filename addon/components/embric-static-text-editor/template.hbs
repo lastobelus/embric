@@ -1,0 +1,16 @@
+<label class="embric-control-main-label">{{name}}</label>
+<div class="embric-control-input">
+  {{textarea value=text rows=rows cols=cols disabled=disabled id=(concat elementId "-textarea")}}
+</div>
+<div class="embric-control-input right">
+  <select class="embric-font-select">
+    {{#each fontList as |font|}}
+      <option value={{font.cssName}}>{{font.displayName}}</option>
+    {{/each}}
+  </select>
+  <button class="add-static-text-button"
+   id={{concat elementId "-add-static-text-button"}}
+  {{action (action 'addStaticText' text selectedFont animate target=editor)}}>
+    Add
+  </button>
+</div>

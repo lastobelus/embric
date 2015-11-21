@@ -1,0 +1,13 @@
+<label class="embric-control-main-label">{{name}}</label>
+<div class="embric-control-input right">
+  <select class="add-shape-select" onchange={{action (mut selectedShape) value="target.value"}}>
+    {{#each shapesList as |shape|}}
+      <option value={{shape.fabricName}} selected={{eq selectedShape shape.fabricName}}>{{shape.displayName}}</option>
+    {{/each}}
+  </select>
+  <button class="add-shape-button"
+   id={{concat elementId "-add-shape-button"}}
+  {{action (action 'addShape' selectedShape animate target=editor)}}>
+    Add
+  </button>
+</div>

@@ -1,0 +1,1 @@
+export { default } from 'embric/components/embric-static-text-editor/component';
