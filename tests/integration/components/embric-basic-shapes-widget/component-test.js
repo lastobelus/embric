@@ -20,9 +20,6 @@ function mockEditor(assert) {
       'strokeWidth-asFloat': 1.5
     }),
     actions: {
-      addShape() {
-        assert.ok(true, 'addShape action should be called');
-      }
     }
   });
   return mock.create();

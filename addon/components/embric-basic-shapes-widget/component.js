@@ -1,7 +1,8 @@
 import Ember from 'ember';
 import layout from './template';
+import  ShapesSupport from 'embric/mixins/shapes-support';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(ShapesSupport, {
   layout,
   name: 'Add Shape',
   animate: true,

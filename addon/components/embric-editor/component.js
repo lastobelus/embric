@@ -3,7 +3,6 @@ import layout from './template';
 import SelectionProxy from 'embric/utils/selection-proxy';
 import  animDissolveAway from 'embric/utils/anim-dissolve-away';
 import  ZindexSupport from 'embric/mixins/zindex-support';
-import  ShapesSupport from 'embric/mixins/shapes-support';
 import  TextSupport from 'embric/mixins/text-support';
 
 function _emptySelection() {
@@ -16,12 +15,17 @@ function _emptySelection() {
   });
 }
 
-export default Ember.Component.extend(ZindexSupport, ShapesSupport, TextSupport, {
+export default Ember.Component.extend(ZindexSupport, TextSupport, {
   layout,
   currentCanvas: null,
   classNames: ['embric-editor'],
+  canvas: Ember.computed('currentCanvas', {
+    get(key) {
+      return this.get('currentCanvas.fabricCanvas');
+    }
+  }),
   currentCanvasJSON() {
-    let canvas = this.get('currentCanvas.fabricCanvas');
+    let canvas = this.get('canvas');
     let json = JSON.stringify(canvas);
     return json;
   },
@@ -30,9 +34,9 @@ export default Ember.Component.extend(ZindexSupport, ShapesSupport, TextSupport,
 
   selection: SelectionProxy.create({ selection: _emptySelection() }),
 
-  _updateSelection() {
-    console.log('_updateSelection');
-    let canvas = this.get('currentCanvas.fabricCanvas');
+  updateSelection() {
+    console.log('updateSelection');
+    let canvas = this.get('canvas');
     let selection;
     let isMulti;
     if (selection = canvas.getActiveGroup()) {
@@ -47,7 +51,7 @@ export default Ember.Component.extend(ZindexSupport, ShapesSupport, TextSupport,
     canvas.renderAll();
   },
   _redraw() {
-    let canvas = this.get('currentCanvas.fabricCanvas');
+    let canvas = this.get('canvas');
     canvas.renderAll();
   },
 
@@ -81,7 +85,7 @@ export default Ember.Component.extend(ZindexSupport, ShapesSupport, TextSupport,
       this.set('currentCanvas', fabricCanvas);
       let canvas = fabricCanvas.get('fabricCanvas');
       let updateSelection = () => {
-        this._updateSelection();
+        this.updateSelection();
       };
       canvas
         .on('object:selected', updateSelection)
@@ -92,17 +96,17 @@ export default Ember.Component.extend(ZindexSupport, ShapesSupport, TextSupport,
     },
 
     setJSON(json) {
-      let canvas = this.get('currentCanvas.fabricCanvas');
+      let canvas = this.get('canvas');
       canvas.loadFromJSON(json, () => {
         canvas.renderAll();
       });
     },
 
     deleteSelection(animate) {
-      let canvas = this.get('currentCanvas.fabricCanvas');
+      let canvas = this.get('canvas');
       let objects = this.get('selection.objects');
       canvas.deactivateAll();
-      this._updateSelection();
+      this.updateSelection();
       objects.forEach(function(object) {
         if (animate) {
           let [properties, animation] = animDissolveAway(canvas, object);
@@ -114,7 +118,7 @@ export default Ember.Component.extend(ZindexSupport, ShapesSupport, TextSupport,
     },
 
     makeGroup() {
-      let canvas = this.get('currentCanvas.fabricCanvas');
+      let canvas = this.get('canvas');
       let selection = this.get('selection');
       if (selection.get('isSingle')) {
         return;
@@ -133,11 +137,11 @@ export default Ember.Component.extend(ZindexSupport, ShapesSupport, TextSupport,
       let group = new window.fabric.Group(newObjs);
       canvas.add(group);
       canvas.setActiveObject(group);
-      this._updateSelection();
+      this.updateSelection();
     },
 
     unMakeGroup() {
-      let canvas = this.get('currentCanvas.fabricCanvas');
+      let canvas = this.get('canvas');
       let objects = this.get('selection.objects');
       // must discard selection, or if selection contains groups & non groups, weird things happen
       canvas.deactivateAll().renderAll();
@@ -155,10 +159,10 @@ export default Ember.Component.extend(ZindexSupport, ShapesSupport, TextSupport,
     },
 
     duplicateSelection() {
-      let canvas = this.get('currentCanvas.fabricCanvas');
+      let canvas = this.get('canvas');
       let objects = this.get('selection.objects');
       canvas.deactivateAll();
-      this._updateSelection();
+      this.updateSelection();
       let group = this._duplicateCanvasObjectsToGroup(canvas, objects);
 
       group.forEach((object) => {
