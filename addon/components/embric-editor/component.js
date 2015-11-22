@@ -19,7 +19,7 @@ export default Ember.Component.extend(ZindexSupport, {
   currentCanvas: null,
   classNames: ['embric-editor'],
   canvas: Ember.computed('currentCanvas', {
-    get(key) {
+    get() {
       return this.get('currentCanvas.fabricCanvas');
     }
   }),

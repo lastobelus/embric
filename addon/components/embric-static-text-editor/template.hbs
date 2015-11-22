@@ -1,6 +1,10 @@
 <label class="embric-control-main-label">{{name}}</label>
 <div class="embric-control-input">
-  {{textarea value=text rows=rows cols=cols disabled=disabled id=(concat elementId "-textarea")}}
+
+  <textarea  id={{concat elementId '-text'}} class="embric-textarea"
+    value={{editor.selection.text}}
+    oninput={{action 'setText' value="target.value"}}></textarea>
+
 </div>
 <div class="embric-control-input right">
   <select class="embric-font-select" onchange={{action (mut selectedFont) value="target.value"}}>
@@ -10,7 +14,7 @@
   </select>
   <button class="add-static-text-button"
    id={{concat elementId "-add-static-text-button"}}
-  {{action 'addStaticText' text selectedFont animate}}>
+  {{action 'addOrSetStaticText' text selectedFont animate}}>
     Add
   </button>
 </div>

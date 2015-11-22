@@ -11,7 +11,7 @@ moduleForComponent('embric-basic-shapes-widget', 'Integration | Component | embr
   }
 });
 
-function mockEditor(assert) {
+function mockEditor() {
   let mock = Ember.Component.extend({
     selection: Ember.Object.create({
       fill: '#111111',
