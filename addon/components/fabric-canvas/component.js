@@ -11,7 +11,6 @@ import Ember from 'ember';
   \{{#embric-editor as |editor| }}
       \{{fabric-canvas width=800 height=300 editor=editor}}
   \{{/embric-editor}}
-</div>
   ```
   @class FabricCanvas
   @namespace Components
