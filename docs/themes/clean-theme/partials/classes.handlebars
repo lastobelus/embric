@@ -1,0 +1,145 @@
+{{#if deprecated}}
+<div class="deprecated">
+  <h2>
+    <span class="fa fa-warning"></span>Deprecated
+    {{#if deprecationMessage}}
+      : {{deprecationMessage}}
+    {{/if}}
+  </h2>
+</div>
+{{/if}}
+
+<div class="pageHeader">
+  <h1>
+    new {{name}}
+    <div class="description">{{description}}</div>
+  </h1>
+
+  <div class="meta">
+    {{#if uses}}
+      <div class="uses">
+        Uses
+        <ul class="inline commas">
+          {{#uses}}
+            <li><a href="{{.}}.html">{{.}}</a></li>
+          {{/uses}}
+        </ul>
+      </div>
+    {{/if}}
+
+    <div class="extends">
+      <span class="fa fa-expand"></span> {{#crossLink extends}}{{/crossLink}}
+    </div>
+
+    {{#if foundAt}}
+      <div class="foundat">
+        <a href="{{foundAt}}"><span class="fa fa-file"></span> `{{{file}}}:{{{line}}}`</a>
+      </div>
+    {{/if}}
+
+    {{#if module}}
+      <div class="module">
+        {{#if submodule}}
+          {{#crossLinkModule module}}<span class="fa fa-cube"></span> {{module}}{{/crossLinkModule}} <i class="fa fa-angle-right"></i> {{#crossLinkModule submodule}}{{/crossLinkModule}}
+        {{else}}
+          {{#crossLinkModule module}}<span class="fa fa-cube"></span> {{module}}{{/crossLinkModule}}
+        {{/if}}
+      </div>
+    {{/if}}
+
+    {{#if since}}
+      <div class="since">
+        <span class="fa fa-calendar"></span> {{since}}
+      </div>
+    {{/if}}
+  </div>
+
+  
+</div>
+
+<div class="boxes">
+{{#is_constructor}}
+  {{#if example}}
+    <div id="example" class="col dw100">
+      <div class="boxed">
+        <h2>Example</h2>
+        <div class="boxedContent">
+          {{{example}}}
+        </div>
+      </div>
+    </div>
+  {{/if}}
+{{/is_constructor}}
+
+{{#if methods}}
+  <div id="methods" class="col dw50">
+    <div class="boxed">
+      <h2>Methods <span class="count">{{methods.length}}</span></h2>
+
+      <div class="boxedContent">
+      {{#methods}}
+        {{>method}}
+      {{/methods}}
+      </div>
+    </div>
+  </div>
+{{/if}}
+
+{{#if attrs}}
+  <div id="attrs" class="col dw50">
+    <div class="boxed">
+      <h2>Attributes <span class="count">{{attrs.length}}</span></h2>
+
+      <table>
+        <thead>
+          <th>Name</th>
+          <th>Default</th>
+          <th>Type</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          {{#attrs}}
+            {{>attrs}}
+          {{/attrs}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{{/if}}
+
+{{#if properties}}
+  <div id="properties" class="col dw50">
+    <div class="boxed">
+      <h2>Options <span class="count">{{properties.length}}</span></h2>
+
+      <table>
+        <thead>
+          <th>Name</th>
+          <th>Default</th>
+          <th>Type</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          {{#properties}} 
+            {{>props}}
+          {{/properties}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{{/if}}
+
+{{#if events}}
+  <div id="events" class="col dw50">
+    <div class="boxed">
+      <h2>Events <span class="count">{{events.length}}</span></h2>
+
+      <div class="boxedContent">
+      {{#events}}
+        {{>events}}
+      {{/events}}
+      </div>
+    </div>
+  </div>
+{{/if}}
+</div>

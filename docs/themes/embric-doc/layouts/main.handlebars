@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{{htmlTitle}}</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,900,300,400italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Mono:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{yuiGridsUrl}}">
+    <link rel="stylesheet" href="{{projectAssets}}/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="{{projectAssets}}/css/main.css" id="site_styles">
+    <link rel="stylesheet" href="{{projectAssets}}/vendor/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="{{projectAssets}}/css/embric.css">
+    <link rel="shortcut icon" type="image/png" href="{{projectAssets}}/favicon.png">
+</head>
+<body class="yui3-skin-sam">
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <h1 class="brand">
+        {{#if projectLogo}}
+	    <img alt="{{projectName}}" src="{{projectLogo}}" style="max-height: 65%;" title="{{projectName}}">
+        {{else}}
+        {{/if}}
+            {{projectName}}
+        </h1>
+	<div class="nav">
+            <li class="divider-vertical"></li>
+            <li>
+                <p class="navbar-text">
+                    API Docs for Version: <b>{{projectVersion}}</b>
+                </p>
+            </li>
+        </div>
+        <form class="navbar-form pull-right" style="line-height: 40px; height: 40px;">
+            <input style="margin-top: 0;" type="text" class="search-query" placeholder="Search for classes/modules..." data-obj='[{{#search classes allModules}}{{/search}}]'>
+        </form>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="span3">
+	    {{>sidebar}}
+        </div>
+        <div class="span9">
+            {{>options}}
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+{{>layout_content}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{{projectAssets}}/vendor/jquery/jquery-1.8.2.min.js"></script>
+<script src="{{projectAssets}}/vendor/bootstrap/js/bootstrap.js"></script>
+<link rel="stylesheet" href="{{projectAssets}}/vendor/highlight/styles/obsidian.css">
+<script src="{{projectAssets}}/vendor/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="{{projectAssets}}/js/yuidoc-bootstrap.js"></script>
+</body>
+</html>

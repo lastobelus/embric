@@ -14,6 +14,16 @@ function _emptySelection() {
   });
 }
 
+/**
+  Mediates the connection between embric components and a Fabric Canvas. It also wraps
+  Fabric selections in an Ember Object, so that properties of the current selection can be
+  bound.
+
+  @class EmbricEditor
+  @namespace Components
+  @extends Ember.Component
+  @public
+*/
 export default Ember.Component.extend(ZindexSupport, {
   layout,
   currentCanvas: null,

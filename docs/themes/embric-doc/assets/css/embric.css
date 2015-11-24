@@ -1,0 +1,210 @@
+/*
+ * Custom styles for the YUIDoc Bootstrap Theme
+ * Authors: kevinlacotaco
+ *          tonybaroneee
+ */
+
+/* -- Navigation Bar -------------------------------------------------------- */
+body {
+  padding: 0;
+  padding-top: 50px;
+  margin: 0;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #0D1F30;
+}
+
+a {
+  color: #8BADA3;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:hover, a:focus {
+  color: #DB6C0F;
+}
+
+.navbar .navbar-inner {
+  background-color: #0D1F30;
+  background-image: linear-gradient(120deg, #0D1F30, #3B6670);
+  border-bottom: 1px solid #DB6C0F;
+}
+.navbar .navbar-inner .brand {
+    height: 40px;
+    margin: 0;
+    padding: 10px 8px 10px 16px;
+    font-size: 24px;
+    line-height:22px;
+    height: 22px;
+    font-weight: 900;
+    color: white;
+    cursor: default;
+}
+.navbar .divider-vertical {
+  border-left: 1px solid rgba(255,255,255,0.15);
+  border-right: none;
+}
+.navbar-text {
+    font-size: 12px;
+    padding-left: 5px;
+    cursor: default;
+}
+
+.navbar-form {
+    margin-right: 3px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  color: #3B6670;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-top: 0.75em;
+}
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+  font-weight: 500;
+  color: #D4E2DE;
+}
+h1 small {
+  font-size: 23px;
+}
+
+li {
+  line-height: 1.5;
+}
+
+.well {
+  background-color: #F7F4EC;
+  border-color: #8BADA3;
+}
+
+#options-form {
+    margin-top: 20px;
+    padding-right: 20px;
+}
+
+.nav-tabs {
+  border-bottom: 1px solid #D4E2DE;
+}
+.nav-tabs > .active > a,
+.nav-tabs > .active > a:hover,
+.nav-tabs > .active > a:focus {
+  color: #3B6670;
+  background-color: #ffffff;
+}
+.nav-pills > .active > a,
+.nav-pills > .active > a:hover,
+.nav-pills > .active > a:focus {
+  color: #ffffff;
+  background-color: #3B6670;
+}
+.nav-tabs.nav-stacked > li > a {
+  border: 1px solid #D4E2DE;
+}
+.nav-tabs.nav-stacked > li > a:hover,
+.nav-tabs.nav-stacked > li > a:focus {
+  border-color: #D4E2DE;
+}
+
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+  border: 1px solid #D4E2DE;
+}
+
+textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {
+  border-color: rgba(219, 108, 15, 0.8);
+  outline: 0;
+  outline: thin dotted \9;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(219, 108, 15,.6);
+  -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(219, 108, 15,.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(219, 108, 15,.6);
+
+}
+/* -- Sidebar --------------------------------------------------------------- */
+
+#sidebar .tab-content {
+    border: 1px solid #D4E2DE;
+    border-top: 0px;
+    padding-bottom: 5px;
+    -webkit-border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+    border-radius: 0 0 4px 4px;
+}
+
+#api-tabview-filter input {
+    width: 94.5%;
+}
+
+#sidebar .tab-pane li a {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#sidebar .tab-pane li a:hover,
+#sidebar .tab-pane li a:focus {
+    outline: 0;
+    border: 0;
+    text-decoration: none;
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+    background-color: #3B6670;
+}
+
+/* -- Content --------------------------------------------------------------- */
+
+#docs-main {
+    margin-top: 65px;
+}
+
+.content {
+    padding-bottom: 50px;
+}
+
+.content .page-header h1 small {
+    padding-left: 5px;
+}
+
+.content .well:not(.moduledesc) p {
+    margin: 9px 0;
+}
+
+pre.code, code, p code {
+  font-family: "Roboto Mono", Menlo, Monaco, "DejaVu Sans Mono", Courier, monospace;
+  font-size: 90%;
+  color: #DB6C0F;
+  background: #FCFBFA;
+  border: none;
+  border-left-width: 1px;
+  padding: 1px 3px;
+}
+
+pre.prettyprint {
+  padding: 0;
+  background-color: #3B6670;
+  border-color: #3B6670;
+  border-left-width: 6px;
+}
+
+.name code {
+  font-size: 15px;
+  font-weight: 700;
+  border:0;
+  background-color: transparent;
+  padding: 0;
+}
+
+label {
+  font-weight: 500;
+  font-size: 14px;
+  color: #8BADA3;
+}
+
+#options-form {
+  color: #3B6670;
+  font-weight: 500;
+}
+
+#options-form label {
+  margin-left: 5px;
+}

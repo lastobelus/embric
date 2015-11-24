@@ -1,0 +1,19 @@
+<tr>
+  <td>
+    <strong>{{name}}</strong>
+    {{#if required}}<br/><span class="required"></span>{{/if}}
+    {{#if deprecated}}<br/><span class="deprecatedFlag"></span>{{/if}}
+  </td>
+
+  <td>
+    {{default}}
+  </td>
+
+  <td>
+    <em>{{#crossLink type}}{{/crossLink}}</em>
+  </td>
+
+  <td>
+  {{{attrDescription}}}
+  </td>
+</tr>

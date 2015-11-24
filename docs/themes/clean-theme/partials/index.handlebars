@@ -1,0 +1,31 @@
+<div class="boxes">
+  {{#if modules}}
+  <div class="col dw50">
+    <div class="boxed">
+      <h2>Modules</h2>
+      <div class="boxedContent">
+        <ul class="linkList">
+        {{#modules}}
+            <li id="{{name}}"><a href="{{../projectRoot}}modules/{{name}}.html">{{displayName}}</a></li>
+        {{/modules}}
+        </ul>
+      </div>
+    </div>
+  </div>
+  {{/if}}
+  {{#if classes}}
+  <div class="col dw50">
+    <div class="boxed">
+      <h2>Classes</h2>
+      <div class="boxedContent">
+        <ul class="linkList">
+        {{#classes}}
+            <li><a href="{{../projectRoot}}classes/{{name}}.html">{{displayName}}</a></li>
+        {{/classes}}
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+  {{/if}}
+</div>

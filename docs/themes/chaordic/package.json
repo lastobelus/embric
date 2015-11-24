@@ -1,0 +1,11 @@
+{
+  "name": "chaordic-yuidoc-theme",
+  "description": "Chaordic YUIDoc theme",
+  "version": "v0.0.1",
+
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/chaordic/chaordic-yuidoc-theme.git"
+  }
+
+}

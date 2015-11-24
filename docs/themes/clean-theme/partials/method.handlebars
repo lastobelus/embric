@@ -1,0 +1,84 @@
+<div class="method">
+  <div class="methodName">
+    <!-- NAME -->
+    <h3>
+      {{name}}
+      <span class="params">{{paramsList}}</span>
+      {{#if type}}
+        <span class="type">{{#crossLink type}}{{/crossLink}}</span>
+      {{/if}}
+      {{#if deprecated}}
+        <span class="deprecatedFlag"></span>
+      {{/if}}
+      {{access}}
+    </h3>
+
+    <!-- DESCRIPTION -->
+    <p>{{{methodDescription}}}</p>
+  </div>
+
+  <!-- PARAMETERS -->
+  {{#if params}}
+  <table>
+    <thead>
+      <th>Name</th>
+      <th>Default</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Properties</th>
+    </thead>
+    <tbody>
+    {{#params}}
+      <tr>
+        <td>
+          <strong>{{name}}</strong>
+        </td>
+
+        <td>
+          {{optdefault}}
+        </td>
+
+        <td>
+          <em>{{#crossLink type}}{{/crossLink}}</em>
+        </td>
+
+        <td>
+        {{{description}}}
+        </td>
+
+        <td>
+          {{#if props}}
+          <ul>
+          {{#props}}
+              <li>
+                {{name}} <em>&lt;{{#crossLink type}}{{/crossLink}}&gt;</em>
+                <div>{{{description}}}</div>
+              </li>
+          {{/props}}
+          </ul>
+          {{/if}}
+        </td>
+      </tr>
+    {{/params}}
+    </tbody>
+  </table>
+  {{/if}}
+
+  <!-- RETURNS -->
+  {{#if return}}
+  {{#return}}
+  <div class="returns">
+    <h5>Returns:</h5>
+    {{#if type}}&lt;{{#crossLink type}}{{/crossLink}}&gt; {{/if}}{{{description}}}
+  </div>
+  {{/return}}
+  {{/if}}
+
+  <!-- EXAMPLE -->
+  {{#if example}}
+  <div class="example">
+    <h5>Example:</h5>
+    {{{example}}}
+  </div>
+  {{/if}}
+</div>

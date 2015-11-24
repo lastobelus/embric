@@ -32,13 +32,15 @@
     "ember-cli-release": "0.2.8",
     "ember-cli-sri": "^1.2.0",
     "ember-cli-uglify": "^1.2.0",
+    "ember-cli-yuidoc": "0.8.1",
     "ember-data": "^2.0.0",
     "ember-disable-prototype-extensions": "^1.0.0",
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^1.0.4",
     "ember-suave": "1.2.2",
     "ember-truth-helpers": "1.2.0",
-    "ember-try": "~0.0.8"
+    "ember-try": "~0.0.8",
+    "yuidoc-bootstrap-theme": "^1.0.6"
   },
   "keywords": [
     "ember-addon",
