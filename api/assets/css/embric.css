@@ -130,6 +130,9 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 
 }
 /* -- Sidebar --------------------------------------------------------------- */
+#sidebar {
+  margin-top: 70px;
+}
 
 #sidebar .tab-content {
     border: 1px solid #D4E2DE;
@@ -224,8 +227,6 @@ label {
   margin-bottom: -16px;
 }
 
-}
-
 @media (min-width: 768px) and (max-width: 979px) {
   #sidebar {
     margin-right: -26px;
@@ -237,7 +238,11 @@ label {
   }
 }
 
+
 @media (max-width: 768px)  {
+  #sidebar {
+    margin-top: 12px;
+  }
   .brand img {
     margin-left: 13px;
   }
