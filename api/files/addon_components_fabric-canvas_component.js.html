@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>addon/components/fabric-canvas/component.js - Embric</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,900,300,400italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Mono:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/embric.css">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+</head>
+<body class="yui3-skin-sam">
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <h1 class="brand">
+          <img alt="Embric" src="../assets/img/embric-logo.png" title="Embric">
+        </h1>
+	<div class="nav">
+            <li class="divider-vertical"></li>
+            <li>
+                <p class="navbar-text">
+                    API Docs for Version: <b>0.0.0.c37b80be</b>
+                </p>
+            </li>
+        </div>
+        <form class="navbar-form pull-right" style="line-height: 40px; height: 40px;">
+            <input style="margin-top: 0;" type="text" class="search-query" placeholder="Search for classes/modules..." data-obj='["classes/Components.EmbricEditor", "classes/Components.FabricCanvas"]'>
+        </form>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="span3">
+	    <div>
+	        <div id="sidebar">
+	            <ul id="main-nav" class="nav nav-tabs" style="margin-bottom:0;">
+	                <li class="active"><a href="#classes" data-toggle="tab">Classes</a></li>
+	                <li><a href="#modules" data-toggle="tab">Modules</a></li>
+	            </ul>
+	    
+	            <div id="api-tabview-filter">
+	                <input type="search" placeholder="Type to filter APIs">
+	            </div>
+	    
+	            <div class="tab-content" style="border: 1px solid #DDD; border-top:0;">
+	                <div class="tab-pane active" id="classes">
+	                    <ul id="api-classes" class="nav nav-list">
+	                            <li><a href="../classes/Components.EmbricEditor.html">Components.EmbricEditor</a></li>
+	                            <li><a href="../classes/Components.FabricCanvas.html">Components.FabricCanvas</a></li>
+	                    </ul>
+	                </div>
+	    
+	                <div class="tab-pane" id="modules">
+	                    <ul id="api-modules" class="nav nav-list">
+	                    </ul>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+        </div>
+        <div class="span9">
+                <form id="options-form" class="form-inline pull-right">
+                    Show:
+                    <label for="api-show-inherited" class="checkbox">
+                        <input type="checkbox" id="api-show-inherited">
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected" class="checkbox">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private" class="checkbox">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated" class="checkbox">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </form>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<div class="page-header">
+    <h1>addon/components/fabric-canvas/component.js <small>File</small></h1>
+</div>
+
+<div class="file">
+    <pre class="prettyprint linenums">
+import Ember from &#x27;ember&#x27;;
+
+/**
+  Creates a Fabric canvas element and registers it
+
+ Use as a block level component with any number of {{#crossLink &quot;Components.EmbricEditor&quot;}}{{/crossLink}} components as children:
+
+  ### Example
+
+  &#x60;&#x60;&#x60;htmlbars
+  \{{#embric-editor as |editor| }}
+      \{{fabric-canvas width=800 height=300 editor=editor}}
+  \{{/embric-editor}}
+  &#x60;&#x60;&#x60;
+  @class FabricCanvas
+  @namespace Components
+  @extends Ember.Component
+  @public
+
+*/
+export default Ember.Component.extend({
+  tagName: &#x27;canvas&#x27;,
+  classNameBindings: &#x27;cssClass::fabric-canvas-container&#x27;,
+  fabricCanvas: null,
+  /**
+    Because of the way Fabric works, the &#x60;height&#x60; and &#x60;width&#x60;
+    of the canvas must be set as &#x60;HTML&#x60; attributes. &#x60;CSS&#x60;-defined
+    &#x60;height&#x60; and &#x60;width&#x60; will be ignored.
+
+    @property attributeBindings
+    @type Array
+    @public
+  */
+  attributeBindings: [ &#x27;height&#x27;, &#x27;width&#x27; ],
+  /**
+    The &#x60;HTML&#x60; &#x60;height&#x60; of the fabric canvas.
+
+    @property height
+    @type Integer
+    @public
+  */
+  height: Ember.computed.oneWay(&#x27;defaultHeight&#x27;),
+  /**
+    The &#x60;HTML&#x60; &#x60;height&#x60; of the fabric canvas.
+
+    @property width
+    @type Integer
+    @public
+  */
+  width: Ember.computed.oneWay(&#x27;defaultWidth&#x27;),
+  defaultHeight: 500,
+  defaultWidth: 700,
+
+  _setup: Ember.on(&#x27;didInsertElement&#x27;, function() {
+    Ember.run.scheduleOnce(&#x27;afterRender&#x27;, () =&gt; {
+      this._setupFabric();
+    });
+  }),
+
+  _setupFabric() {
+    if (Ember.isEmpty(this.get(&#x27;fabricCanvas&#x27;))) {
+      let canvas = new window.fabric.Canvas(this.get(&#x27;elementId&#x27;));
+      canvas.renderOnAddRemove = false;
+      this.set(&#x27;fabricCanvas&#x27;, canvas);
+    }
+    let editor = this.get(&#x27;editor&#x27;);
+    editor.send(&#x27;registerCanvas&#x27;, this);
+  }
+});
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/jquery/jquery-1.8.2.min.js"></script>
+<script src="../assets/vendor/bootstrap/js/bootstrap.js"></script>
+<link rel="stylesheet" href="../assets/vendor/highlight/styles/obsidian.css">
+<script src="../assets/vendor/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="../assets/js/yuidoc-bootstrap.js"></script>
+</body>
+</html>

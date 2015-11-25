@@ -1,0 +1,114 @@
+{
+    "project": {
+        "name": "Embric",
+        "description": "A wrapper for Fabric.js, with a focus on building graphics editors.",
+        "version": "0.0.0.c37b80be",
+        "external": {
+            "data": [
+                {
+                    "base": "https://github.com/emberjs/ember.js/blob/v2.2.0",
+                    "json": "http://builds.emberjs.com/tags/v2.2.0/ember-docs.json"
+                }
+            ]
+        }
+    },
+    "files": {
+        "addon/components/embric-editor/component.js": {
+            "name": "addon/components/embric-editor/component.js",
+            "modules": {},
+            "classes": {
+                "Components.EmbricEditor": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Components": 1
+            }
+        },
+        "addon/components/fabric-canvas/component.js": {
+            "name": "addon/components/fabric-canvas/component.js",
+            "modules": {},
+            "classes": {
+                "Components.FabricCanvas": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Components": 1
+            }
+        }
+    },
+    "modules": {},
+    "classes": {
+        "Components.EmbricEditor": {
+            "name": "Components.EmbricEditor",
+            "shortname": "Components.EmbricEditor",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "Components",
+            "file": "addon/components/embric-editor/component.js",
+            "line": 17,
+            "description": "Mediates the connection between embric components and a Fabric Canvas. It also wraps\nFabric selections in an Ember Object, so that properties of the current selection can be\nbound.\n\n```htmlbars\n\\{{yield this}}\n```",
+            "extends": "Ember.Component",
+            "access": "public",
+            "tagname": ""
+        },
+        "Components.FabricCanvas": {
+            "name": "Components.FabricCanvas",
+            "shortname": "Components.FabricCanvas",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "Components",
+            "file": "addon/components/fabric-canvas/component.js",
+            "line": 3,
+            "description": "Creates a Fabric canvas element and registers it\n\n Use as a block level component with any number of {{#crossLink \"Components.EmbricEditor\"}}{{/crossLink}} components as children:\n\n### Example\n\n```htmlbars\n\\{{#embric-editor as |editor| }}\n    \\{{fabric-canvas width=800 height=300 editor=editor}}\n\\{{/embric-editor}}\n```",
+            "extends": "Ember.Component",
+            "access": "public",
+            "tagname": ""
+        }
+    },
+    "elements": {},
+    "classitems": [
+        {
+            "file": "addon/components/fabric-canvas/component.js",
+            "line": 25,
+            "description": "Because of the way Fabric works, the `height` and `width`\nof the canvas must be set as `HTML` attributes. `CSS`-defined\n`height` and `width` will be ignored.",
+            "itemtype": "property",
+            "name": "attributeBindings",
+            "type": "Array",
+            "access": "public",
+            "tagname": "",
+            "class": "Components.FabricCanvas",
+            "namespace": "Components"
+        },
+        {
+            "file": "addon/components/fabric-canvas/component.js",
+            "line": 35,
+            "description": "The `HTML` `height` of the fabric canvas.",
+            "itemtype": "property",
+            "name": "height",
+            "type": "Integer",
+            "access": "public",
+            "tagname": "",
+            "class": "Components.FabricCanvas",
+            "namespace": "Components"
+        },
+        {
+            "file": "addon/components/fabric-canvas/component.js",
+            "line": 43,
+            "description": "The `HTML` `height` of the fabric canvas.",
+            "itemtype": "property",
+            "name": "width",
+            "type": "Integer",
+            "access": "public",
+            "tagname": "",
+            "class": "Components.FabricCanvas",
+            "namespace": "Components"
+        }
+    ],
+    "warnings": []
+}

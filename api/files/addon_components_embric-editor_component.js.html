@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>addon/components/embric-editor/component.js - Embric</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,900,300,400italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Mono:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/embric.css">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+</head>
+<body class="yui3-skin-sam">
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <h1 class="brand">
+          <img alt="Embric" src="../assets/img/embric-logo.png" title="Embric">
+        </h1>
+	<div class="nav">
+            <li class="divider-vertical"></li>
+            <li>
+                <p class="navbar-text">
+                    API Docs for Version: <b>0.0.0.c37b80be</b>
+                </p>
+            </li>
+        </div>
+        <form class="navbar-form pull-right" style="line-height: 40px; height: 40px;">
+            <input style="margin-top: 0;" type="text" class="search-query" placeholder="Search for classes/modules..." data-obj='["classes/Components.EmbricEditor", "classes/Components.FabricCanvas"]'>
+        </form>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="span3">
+	    <div>
+	        <div id="sidebar">
+	            <ul id="main-nav" class="nav nav-tabs" style="margin-bottom:0;">
+	                <li class="active"><a href="#classes" data-toggle="tab">Classes</a></li>
+	                <li><a href="#modules" data-toggle="tab">Modules</a></li>
+	            </ul>
+	    
+	            <div id="api-tabview-filter">
+	                <input type="search" placeholder="Type to filter APIs">
+	            </div>
+	    
+	            <div class="tab-content" style="border: 1px solid #DDD; border-top:0;">
+	                <div class="tab-pane active" id="classes">
+	                    <ul id="api-classes" class="nav nav-list">
+	                            <li><a href="../classes/Components.EmbricEditor.html">Components.EmbricEditor</a></li>
+	                            <li><a href="../classes/Components.FabricCanvas.html">Components.FabricCanvas</a></li>
+	                    </ul>
+	                </div>
+	    
+	                <div class="tab-pane" id="modules">
+	                    <ul id="api-modules" class="nav nav-list">
+	                    </ul>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+        </div>
+        <div class="span9">
+                <form id="options-form" class="form-inline pull-right">
+                    Show:
+                    <label for="api-show-inherited" class="checkbox">
+                        <input type="checkbox" id="api-show-inherited">
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected" class="checkbox">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private" class="checkbox">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated" class="checkbox">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </form>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<div class="page-header">
+    <h1>addon/components/embric-editor/component.js <small>File</small></h1>
+</div>
+
+<div class="file">
+    <pre class="prettyprint linenums">
+import Ember from &#x27;ember&#x27;;
+import layout from &#x27;./template&#x27;;
+import SelectionProxy from &#x27;embric/utils/selection-proxy&#x27;;
+import  animDissolveAway from &#x27;embric/utils/anim-dissolve-away&#x27;;
+import  ZindexSupport from &#x27;embric/mixins/zindex-support&#x27;;
+
+function _emptySelection() {
+  return Ember.Object.create({
+    type: &#x27;empty&#x27;,
+    fill: &#x27;#8BADA3&#x27;,
+    stroke: &#x27;#0D1F30&#x27;,
+    strokeWidth: 1,
+    opacity: 1.0
+  });
+}
+
+/**
+  Mediates the connection between embric components and a Fabric Canvas. It also wraps
+  Fabric selections in an Ember Object, so that properties of the current selection can be
+  bound.
+
+  &#x60;&#x60;&#x60;htmlbars
+  \{{yield this}}
+  &#x60;&#x60;&#x60;
+
+  @class EmbricEditor
+  @namespace Components
+  @extends Ember.Component
+  @public
+*/
+export default Ember.Component.extend(ZindexSupport, {
+  layout,
+  currentCanvas: null,
+  classNames: [&#x27;embric-editor&#x27;],
+  canvas: Ember.computed(&#x27;currentCanvas&#x27;, {
+    get() {
+      return this.get(&#x27;currentCanvas.fabricCanvas&#x27;);
+    }
+  }),
+  currentCanvasJSON() {
+    let canvas = this.get(&#x27;canvas&#x27;);
+    let json = JSON.stringify(canvas);
+    return json;
+  },
+  defaultProperties: _emptySelection(), // TODO: App prefs
+  redrawDebounce: 100,
+
+  selection: SelectionProxy.create({ selection: _emptySelection() }),
+
+  updateSelection() {
+    console.log(&#x27;updateSelection&#x27;);
+    let canvas = this.get(&#x27;canvas&#x27;);
+    let selection;
+    let isMulti;
+    if (selection = canvas.getActiveGroup()) {
+      isMulti = true;
+    } else {
+      isMulti = false;
+      selection = canvas.getActiveObject() || _emptySelection();
+    }
+    this.set(&#x27;selection&#x27;, SelectionProxy.create({ selection, isMulti, changeHandler: () =&gt; {
+      Ember.run.debounce(this, &#x27;_redraw&#x27;, this.get(&#x27;redrawDebounce&#x27;), false);
+    } }));
+    canvas.renderAll();
+  },
+  _redraw() {
+    let canvas = this.get(&#x27;canvas&#x27;);
+    canvas.renderAll();
+  },
+
+  _duplicateCanvasObjectsToGroup(canvas, objects) {
+    let group = [];
+    objects.forEach((object) =&gt; {
+      let newObj = this._duplicateCanvasObject(canvas, object);
+      group.push(newObj);
+    });
+    return group;
+  },
+
+  _duplicateCanvasObject(canvas, object) {
+    if (object.get(&#x27;type&#x27;) === &#x27;group&#x27;) {
+      let newObjs = this._duplicateCanvasObjectsToGroup(canvas, object.getObjects());
+      let group = new window.fabric.Group(newObjs);
+      object.stateProperties.forEach((prop) =&gt; {
+        if (!object.delegatedProperties[prop]) {
+          group.set(prop, object.get(prop));
+        }
+      });
+      return group;
+    } else {
+      let newObj = object.clone();
+      return newObj;
+    }
+  },
+
+  actions: {
+    registerCanvas(fabricCanvas) {
+      this.set(&#x27;currentCanvas&#x27;, fabricCanvas);
+      let canvas = fabricCanvas.get(&#x27;fabricCanvas&#x27;);
+      let updateSelection = () =&gt; {
+        this.updateSelection();
+      };
+      canvas
+        .on(&#x27;object:selected&#x27;, updateSelection)
+        .on(&#x27;group:selected&#x27;, updateSelection)
+        .on(&#x27;path:created&#x27;, updateSelection)
+        .on(&#x27;selection:cleared&#x27;, updateSelection);
+      window.cv = fabricCanvas.fabricCanvas;
+    },
+
+    setJSON(json) {
+      let canvas = this.get(&#x27;canvas&#x27;);
+      canvas.loadFromJSON(json, () =&gt; {
+        canvas.renderAll();
+      });
+    },
+
+    deleteSelection(animate) {
+      let canvas = this.get(&#x27;canvas&#x27;);
+      let objects = this.get(&#x27;selection.objects&#x27;);
+      canvas.deactivateAll();
+      this.updateSelection();
+      objects.forEach(function(object) {
+        if (animate) {
+          let [properties, animation] = animDissolveAway(canvas, object);
+          object.animate(properties, animation);
+        } else {
+          canvas.remove(object);
+        }
+      });
+    },
+
+    makeGroup() {
+      let canvas = this.get(&#x27;canvas&#x27;);
+      let selection = this.get(&#x27;selection&#x27;);
+      if (selection.get(&#x27;isSingle&#x27;)) {
+        return;
+      }
+      let objects = selection.get(&#x27;objects&#x27;);
+      if (Ember.isEmpty(objects)) {
+        return;
+      }
+      canvas.deactivateAll().renderAll();
+      let newObjs = [];
+      objects.forEach(function(obj) {
+        let newObj = obj.clone();
+        canvas.remove(obj);
+        newObjs.push(newObj);
+      });
+      let group = new window.fabric.Group(newObjs);
+      canvas.add(group);
+      canvas.setActiveObject(group);
+      this.updateSelection();
+    },
+
+    unMakeGroup() {
+      let canvas = this.get(&#x27;canvas&#x27;);
+      let objects = this.get(&#x27;selection.objects&#x27;);
+      // must discard selection, or if selection contains groups &amp; non groups, weird things happen
+      canvas.deactivateAll().renderAll();
+      objects.forEach(function(group) {
+        if (group.type === &#x27;group&#x27;) {
+          let items = group.getObjects();
+          group._restoreObjectsState();
+          canvas.remove(group);
+          for (let i = 0; i &lt; items.length; i++) {
+            canvas.add(items[i]);
+          }
+        }
+      });
+      canvas.renderAll();
+    },
+
+    duplicateSelection() {
+      let canvas = this.get(&#x27;canvas&#x27;);
+      let objects = this.get(&#x27;selection.objects&#x27;);
+      canvas.deactivateAll();
+      this.updateSelection();
+      let group = this._duplicateCanvasObjectsToGroup(canvas, objects);
+
+      group.forEach((object) =&gt; {
+        canvas.add(object);
+      });
+
+      if (group.length === 1) {
+        canvas.setActiveObject(group[0]);
+      } else if (group.length &gt; 1) {
+        group = new window.fabric.Group(group, {
+          canvas
+        });
+        group.addWithUpdate();
+        canvas.setActiveGroup(group);
+      }
+      canvas.renderAll();
+    }
+  }
+});
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/jquery/jquery-1.8.2.min.js"></script>
+<script src="../assets/vendor/bootstrap/js/bootstrap.js"></script>
+<link rel="stylesheet" href="../assets/vendor/highlight/styles/obsidian.css">
+<script src="../assets/vendor/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="../assets/js/yuidoc-bootstrap.js"></script>
+</body>
+</html>
