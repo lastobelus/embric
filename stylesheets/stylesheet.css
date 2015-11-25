@@ -2,6 +2,8 @@
 DarkBue     #0D1F30
 MedAqua     #3B6670
 PaleAqua    #8BADA3
+VeryPaleAqua #D4E2DE
+VeryPaleBeige #F7F4EC
 Beige       #F0E3C0
 MedBeige    #E3D7B6
 DarkerBeige #CCC1A3
@@ -18,7 +20,8 @@ body {
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  color: #0D1F30; }
+  color: #0D1F30;
+}
 
 a {
   color: #8BADA3;
@@ -70,13 +73,13 @@ a {
   color: #fff;
   text-align: center;
   background-color: #0D1F30;
-  background-image: linear-gradient(120deg, #0D1F30, #3B6670);
-  border-bottom: 1px solid #DB6C0F;
+  background-image: linear-gradient(170deg, #0D1F30 0%, #0D1F30 25%, #3B6670 100%);
+  border-bottom: 1px solid #0D1F30;
 }
 
 @media screen and (min-width: 64em) {
   .page-header {
-    padding: 5rem 6rem; } }
+    padding: 2rem 6rem; } }
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
   .page-header {
@@ -84,23 +87,32 @@ a {
 
 @media screen and (max-width: 42em) {
   .page-header {
-    padding: 2rem 1rem; } }
+    padding: 1rem 1rem; } }
 
 .project-name {
   margin-top: 0;
   margin-bottom: 0.1rem; }
 
+.project-name img.logo {
+  border: 0;
+  margin-top: -10px;
+  margin-bottom: -45px;
+}
+
 @media screen and (min-width: 64em) {
-  .project-name {
-    font-size: 3.25rem; } }
+}
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
-  .project-name {
-    font-size: 2.25rem; } }
+  .project-name img.logo{
+    width: 447px;
+  }
+}
 
 @media screen and (max-width: 42em) {
-  .project-name {
-    font-size: 1.75rem; } }
+  .project-name img.logo{
+    width: 335px;
+  }
+}
 
 .project-tagline {
   margin-bottom: 2rem;
@@ -109,15 +121,18 @@ a {
 
 @media screen and (min-width: 64em) {
   .project-tagline {
-    font-size: 1.25rem; } }
+    font-size: 1.5rem; } }
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
   .project-tagline {
-    font-size: 1.15rem; } }
+    font-size: 1.5rem; } }
 
 @media screen and (max-width: 42em) {
   .project-tagline {
-    font-size: 1rem; } }
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
 
 .main-content :first-child {
   margin-top: 0; }
