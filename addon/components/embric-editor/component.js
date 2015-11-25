@@ -15,12 +15,33 @@ function _emptySelection() {
 }
 
 /**
-  Mediates the connection between embric components and a Fabric Canvas. It also wraps
-  Fabric selections in an Ember Object, so that properties of the current selection can be
-  bound.
+  Mediates the connection between embric components and a `Fabric Canvas`. It also wraps
+  Fabric selections in an {{#crossLink "Utils.SelectionProxy"}}{{/crossLink}}, so that properties
+  of the current selection can be bound. The various mixins that are used to implement
+  editor widgets assume that an instance of `EmbricEditor` is bound to their `editor`
+  property.
+
+  ### Example
 
   ```htmlbars
-  \{{yield this}}
+  /{{#embric-editor as |editor| }}
+    <h2>Editor</h2>
+    /{{fabric-canvas width=800 height=300 editor=editor }}
+    <div class="editor-controls-panel">
+      <h3>Controls</h3>
+      <div class="control-column">
+        /{{embric-fill-stroke-editor editor=editor}}
+        /{{embric-basic-shapes-widget editor=editor}}
+        /{{embric-static-text-editor editor=editor}}
+      </div>
+      <div class="control-column">
+        /{{embric-group-editor editor=editor}}
+        /{{embric-duplicate-selection editor=editor}}
+        /{{embric-delete-selection editor=editor}}
+        /{{embric-zindex-editor editor=editor}}
+      </div>
+    </div>
+  /{{/embric-editor}}
   ```
 
   @class EmbricEditor
@@ -32,6 +53,13 @@ export default Ember.Component.extend(ZindexSupport, {
   layout,
   currentCanvas: null,
   classNames: ['embric-editor'],
+  /**
+    The fabric `canvas` object the editor is managing.
+
+    @property canvas
+    @type fabric.Canvas
+    @public
+  */
   canvas: Ember.computed('currentCanvas', {
     get() {
       return this.get('currentCanvas.fabricCanvas');
@@ -45,7 +73,22 @@ export default Ember.Component.extend(ZindexSupport, {
   defaultProperties: _emptySelection(), // TODO: App prefs
   redrawDebounce: 100,
 
+  /**
+    A proxy for the current selection in the `fabric canvas`.
+    Normal ember get/set semantics can be used with this
+    object.
+    If there are multiple objects selected, getters return a
+    property if it has the same value for all objects in the
+    selection, and setters set the property recursively on
+    all objects in the selection.
+
+
+    @property selection
+    @type SelectionProxy
+    @public
+  */
   selection: SelectionProxy.create({ selection: _emptySelection() }),
+
 
   updateSelection() {
     console.log('updateSelection');
