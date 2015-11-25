@@ -22,7 +22,7 @@
             <li class="divider-vertical"></li>
             <li>
                 <p class="navbar-text">
-                    API Docs for Version: <b>0.0.0.c37b80be</b>
+                    API Docs for Version: <b>0.0.0.4d72f612</b>
                 </p>
             </li>
         </div>
@@ -107,10 +107,30 @@
 
 
 <div class="well well-small">
-    <p>Mediates the connection between embric components and a Fabric Canvas. It also wraps
-Fabric selections in an Ember Object, so that properties of the current selection can be
-bound.</p>
-<pre class="code prettyprint"><code class="language-htmlbars">{{yield this}}
+    <p>Mediates the connection between embric components and a <code>Fabric Canvas</code>. It also wraps
+Fabric selections in an {{#crossLink "Utils.SelectionProxy"}}{{/crossLink}}, so that properties
+of the current selection can be bound. The various mixins that are used to implement
+editor widgets assume that an instance of <code>EmbricEditor</code> is bound to their <code>editor</code>
+property.</p>
+<h3>Example</h3>
+<pre class="code prettyprint"><code class="language-htmlbars">/{{#embric-editor as |editor| }}
+  &lt;h2&gt;Editor&lt;/h2&gt;
+  /{{fabric-canvas width=800 height=300 editor=editor }}
+  &lt;div class="editor-controls-panel"&gt;
+    &lt;h3&gt;Controls&lt;/h3&gt;
+    &lt;div class="control-column"&gt;
+      /{{embric-fill-stroke-editor editor=editor}}
+      /{{embric-basic-shapes-widget editor=editor}}
+      /{{embric-static-text-editor editor=editor}}
+    &lt;/div&gt;
+    &lt;div class="control-column"&gt;
+      /{{embric-group-editor editor=editor}}
+      /{{embric-duplicate-selection editor=editor}}
+      /{{embric-delete-selection editor=editor}}
+      /{{embric-zindex-editor editor=editor}}
+    &lt;/div&gt;
+  &lt;/div&gt;
+/{{/embric-editor}}
 </code></pre>
 
 </div>
@@ -309,6 +329,10 @@ bound.</p>
                                 <a href="#" data-tabid="#properties" data-anchor="#property_ariaRole" data-tablink="ariaRole">ariaRole</a>
 
                             </li>
+                            <li class="index-item property public">
+                                <a href="#" data-tabid="#properties" data-anchor="#property_canvas" data-tablink="canvas">canvas</a>
+
+                            </li>
                             <li class="index-item property public inherited">
                                 <a href="#" data-tabid="#properties" data-anchor="#property_classNameBindings" data-tablink="classNameBindings">classNameBindings</a>
 
@@ -351,6 +375,10 @@ bound.</p>
                             </li>
                             <li class="index-item property private inherited">
                                 <a href="#" data-tabid="#properties" data-anchor="#property_parentView" data-tablink="parentView">parentView</a>
+
+                            </li>
+                            <li class="index-item property public">
+                                <a href="#" data-tabid="#properties" data-anchor="#property_selection" data-tablink="selection">selection</a>
 
                             </li>
                             <li class="index-item property private inherited">
@@ -3241,6 +3269,32 @@ bound.</p>
                     
                     
                     </div>
+                    <div id="property_canvas" class="property item public">
+                        <h3 class="name"><code>canvas</code></h3>
+                        <span class="type">fabric.Canvas</span>
+                    
+                    
+                            <span class="flag public">public</span>
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>
+                                    Defined in
+                            <a href="../files/addon_components_embric-editor_component.js.html#l56"><code>addon&#x2F;components&#x2F;embric-editor&#x2F;component.js:56</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            <p>The fabric <code>canvas</code> object the editor is managing.</p>
+                    
+                        </div>
+                    
+                    
+                    
+                    </div>
                     <div id="property_classNameBindings" class="property item public inherited">
                         <h3 class="name"><code>classNameBindings</code></h3>
                         <span class="type">Array</span>
@@ -3781,6 +3835,38 @@ bound.</p>
                         </div>
                     
                             <p><strong>Default:</strong> null</p>
+                    
+                    
+                    </div>
+                    <div id="property_selection" class="property item public">
+                        <h3 class="name"><code>selection</code></h3>
+                        <span class="type">SelectionProxy</span>
+                    
+                    
+                            <span class="flag public">public</span>
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>
+                                    Defined in
+                            <a href="../files/addon_components_embric-editor_component.js.html#l76"><code>addon&#x2F;components&#x2F;embric-editor&#x2F;component.js:76</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            <p>A proxy for the current selection in the <code>fabric canvas</code>.
+                    Normal ember get/set semantics can be used with this
+                    object.
+                    If there are multiple objects selected, getters return a
+                    property if it has the same value for all objects in the
+                    selection, and setters set the property recursively on
+                    all objects in the selection.</p>
+                    
+                        </div>
+                    
                     
                     
                     </div>
