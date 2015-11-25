@@ -19,6 +19,10 @@ function _emptySelection() {
   Fabric selections in an Ember Object, so that properties of the current selection can be
   bound.
 
+  ```htmlbars
+  \{{yield this}}
+  ```
+
   @class EmbricEditor
   @namespace Components
   @extends Ember.Component
