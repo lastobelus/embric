@@ -22,12 +22,12 @@
             <li class="divider-vertical"></li>
             <li>
                 <p class="navbar-text">
-                    API Docs for Version: <b>0.0.0.4d72f612</b>
+                    API Docs for Version: <b>0.0.0.04b029ac</b>
                 </p>
             </li>
         </div>
         <form class="navbar-form pull-right" style="line-height: 40px; height: 40px;">
-            <input style="margin-top: 0;" type="text" class="search-query" placeholder="Search for classes/modules..." data-obj='["classes/Components.EmbricEditor", "classes/Components.FabricCanvas"]'>
+            <input style="margin-top: 0;" type="text" class="search-query" placeholder="Search for classes/modules/elements..." data-obj='["classes/Components.EmbricEditor", "classes/Components.FabricCanvas"]'>
         </form>
     </div>
 </div>
@@ -38,7 +38,9 @@
 	        <div id="sidebar">
 	            <ul id="main-nav" class="nav nav-tabs" style="margin-bottom:0;">
 	                <li class="active"><a href="#classes" data-toggle="tab">Classes</a></li>
-	                <li><a href="#modules" data-toggle="tab">Modules</a></li>
+	    
+	                <li ><a href="#elements" data-toggle="tab">Components</a></li>
+	    
 	            </ul>
 	    
 	            <div id="api-tabview-filter">
@@ -53,10 +55,14 @@
 	                    </ul>
 	                </div>
 	    
-	                <div class="tab-pane" id="modules">
-	                    <ul id="api-modules" class="nav nav-list">
+	                  <div class="tab-pane" id="elements">
+	                    <ul id="api-elements" class="nav nav-list">
+	                        <li><a href="../elements/embric-basic-shapes-widget.html">&lt;embric-basic-shapes-widget&gt;</a></li>
+	                        <li><a href="../elements/embric-editor.html">&lt;embric-editor&gt;</a></li>
+	                        <li><a href="../elements/embric-static-text-editor.html">&lt;embric-static-text-editor&gt;</a></li>
 	                    </ul>
-	                </div>
+	                  </div>
+	    
 	            </div>
 	        </div>
 	    </div>
@@ -120,30 +126,39 @@ function _emptySelection() {
   ### Example
 
   &#x60;&#x60;&#x60;htmlbars
-  /{{#embric-editor as |editor| }}
+  \{{#embric-editor as |editor| }}
     &lt;h2&gt;Editor&lt;/h2&gt;
-    /{{fabric-canvas width=800 height=300 editor=editor }}
+    \{{fabric-canvas width=800 height=300 editor=editor }}
     &lt;div class=&quot;editor-controls-panel&quot;&gt;
       &lt;h3&gt;Controls&lt;/h3&gt;
       &lt;div class=&quot;control-column&quot;&gt;
-        /{{embric-fill-stroke-editor editor=editor}}
-        /{{embric-basic-shapes-widget editor=editor}}
-        /{{embric-static-text-editor editor=editor}}
+        \{{embric-fill-stroke-editor editor=editor}}
+        \{{embric-basic-shapes-widget editor=editor}}
+        \{{embric-static-text-editor editor=editor}}
       &lt;/div&gt;
       &lt;div class=&quot;control-column&quot;&gt;
-        /{{embric-group-editor editor=editor}}
-        /{{embric-duplicate-selection editor=editor}}
-        /{{embric-delete-selection editor=editor}}
-        /{{embric-zindex-editor editor=editor}}
+        \{{embric-group-editor editor=editor}}
+        \{{embric-duplicate-selection editor=editor}}
+        \{{embric-delete-selection editor=editor}}
+        \{{embric-zindex-editor editor=editor}}
       &lt;/div&gt;
     &lt;/div&gt;
-  /{{/embric-editor}}
+  \{{/embric-editor}}
   &#x60;&#x60;&#x60;
 
   @class EmbricEditor
   @namespace Components
   @extends Ember.Component
   @public
+*/
+/**
+  The top-level embric component, &#x60;embric-editor&#x60; contains no markup and yields an instance
+  that interface widgets can bind to.
+  When an included {{#crossLink &quot;Elements.fabric-canvas&quot;}}{{/crossLink}} is bound to an instance
+  of &#x60;embric-editor&#x60;, when it creates its fabric canvas it will register it with the bound editor,
+  making the fabric selection and canvas available to widgets bound to the same instance
+  of &#x60;embric-editor&#x60;.
+  @element embric-editor
 */
 export default Ember.Component.extend(ZindexSupport, {
   layout,

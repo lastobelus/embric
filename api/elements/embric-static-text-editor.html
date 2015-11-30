@@ -2,21 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Embric</title>
+    <title>embric-static-text-editor - Embric</title>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,900,300,400italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Mono:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="">
-    <link rel="stylesheet" href="./assets/vendor/prettify/prettify-min.css">
-    <link rel="stylesheet" href="./assets/css/main.css" id="site_styles">
-    <link rel="stylesheet" href="./assets/vendor/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="./assets/css/embric.css">
-    <link rel="shortcut icon" type="image/png" href="./assets/favicon.png">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/embric.css">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
 </head>
 <body class="yui3-skin-sam">
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <h1 class="brand">
-          <a href="./"><img alt="Embric" src="./assets/img/embric-logo.png" title="Embric"></a>
+          <a href="../"><img alt="Embric" src="../assets/img/embric-logo.png" title="Embric"></a>
         </h1>
 	<div class="nav">
             <li class="divider-vertical"></li>
@@ -50,16 +50,16 @@
 	            <div class="tab-content" style="border: 1px solid #DDD; border-top:0;">
 	                <div class="tab-pane active" id="classes">
 	                    <ul id="api-classes" class="nav nav-list">
-	                            <li><a href="./classes/Components.EmbricEditor.html">Components.EmbricEditor</a></li>
-	                            <li><a href="./classes/Components.FabricCanvas.html">Components.FabricCanvas</a></li>
+	                            <li><a href="../classes/Components.EmbricEditor.html">Components.EmbricEditor</a></li>
+	                            <li><a href="../classes/Components.FabricCanvas.html">Components.FabricCanvas</a></li>
 	                    </ul>
 	                </div>
 	    
 	                  <div class="tab-pane" id="elements">
 	                    <ul id="api-elements" class="nav nav-list">
-	                        <li><a href="./elements/embric-basic-shapes-widget.html">&lt;embric-basic-shapes-widget&gt;</a></li>
-	                        <li><a href="./elements/embric-editor.html">&lt;embric-editor&gt;</a></li>
-	                        <li><a href="./elements/embric-static-text-editor.html">&lt;embric-static-text-editor&gt;</a></li>
+	                        <li><a href="../elements/embric-basic-shapes-widget.html">&lt;embric-basic-shapes-widget&gt;</a></li>
+	                        <li><a href="../elements/embric-editor.html">&lt;embric-editor&gt;</a></li>
+	                        <li><a href="../elements/embric-static-text-editor.html">&lt;embric-static-text-editor&gt;</a></li>
 	                    </ul>
 	                  </div>
 	    
@@ -94,30 +94,74 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<p>Browse to a module or class using the sidebar to view its API documentation.</p>
+<div class="page-header">
+    <h1>&lt;embric-static-text-editor&gt; <small>Component</small></h1>
+</div>
 
-<h2>Keyboard Shortcuts</h2>
+<div class="well well-small">
+        <div class="uses">
+            Uses
+            <ul class="inline commas">
+                    <li><a href="ShapesSupport.html">ShapesSupport</a></li>
+            </ul>
+        </div>
 
-<ul>
-    <li><p>Press <kbd>s</kbd> to focus the API search box.</p></li>
 
-    <li><p>Use <kbd>Up</kbd> and <kbd>Down</kbd> to select classes, modules, and search results.</p></li>
+        <div class="foundat">
+            Defined in: <a href="../files/addon_components_embric-static-text-editor_component.js.html#l5"><code>addon&#x2F;components&#x2F;embric-static-text-editor&#x2F;component.js:5</code></a>
+        </div>
 
-    <li class="mac-only"><p>With the API search box or sidebar focused, use <kbd><span class="cmd">&#x2318;</span>-Left</kbd> or <kbd><span class="cmd">&#x2318;</span>-Right</kbd> to switch sidebar tabs.</p></li>
 
-    <li class="pc-only"><p>With the API search box or sidebar focused, use <kbd>Ctrl+Left</kbd> and <kbd>Ctrl+Right</kbd> to switch sidebar tabs.</p></li>
-</ul>
+</div>
+
+
+<div class="well well-small">
+    <p>Widget that provides a <code>textarea</code> for entering/editing text, and a <code>select</code>
+for choosing a font.</p>
+<p>It expects fonts to be bound to <code>fontList</code> in the following form:</p>
+<pre class="code prettyprint"><code class="language-javascript">Ember.A([
+  { cssName: 'Arial Black', displayName: 'Arial Black' },
+  { cssName: 'Helvetica', displayName: 'Helvetica' }
+])
+</code></pre>
+
+    <ul class="definitions">
+
+    </ul>
+</div>
+
+
+<div>
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#index">Index</a></li>
+
+    </ul>
+
+    <div class="tab-content">
+        <div id="index" class="tab-pane active">
+            <h2 class="off-left">Item Index</h2>
+
+
+
+
+        </div>
+
+
+
+
+    </div>
+</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<script src="./assets/vendor/jquery/jquery-1.8.2.min.js"></script>
-<script src="./assets/vendor/bootstrap/js/bootstrap.js"></script>
-<link rel="stylesheet" href="./assets/vendor/highlight/styles/obsidian.css">
-<script src="./assets/vendor/highlight/highlight.pack.js"></script>
+<script src="../assets/vendor/jquery/jquery-1.8.2.min.js"></script>
+<script src="../assets/vendor/bootstrap/js/bootstrap.js"></script>
+<link rel="stylesheet" href="../assets/vendor/highlight/styles/obsidian.css">
+<script src="../assets/vendor/highlight/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<script src="./assets/js/yuidoc-bootstrap.js"></script>
+<script src="../assets/js/yuidoc-bootstrap.js"></script>
 </body>
 </html>

@@ -6,6 +6,10 @@ YUI.add("yuidoc-meta", function(Y) {
     ],
     "modules": [],
     "allModules": [],
-    "elements": []
+    "elements": [
+        "embric-basic-shapes-widget",
+        "embric-editor",
+        "embric-static-text-editor"
+    ]
 } };
 });

@@ -2,7 +2,7 @@
     "project": {
         "name": "Embric",
         "description": "A wrapper for Fabric.js, with a focus on building graphics editors.",
-        "version": "0.0.0.4d72f612",
+        "version": "0.0.0.04b029ac",
         "external": {
             "data": [
                 {
@@ -13,6 +13,13 @@
         }
     },
     "files": {
+        "addon/components/embric-basic-shapes-widget/component.js": {
+            "name": "addon/components/embric-basic-shapes-widget/component.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
         "addon/components/embric-editor/component.js": {
             "name": "addon/components/embric-editor/component.js",
             "modules": {},
@@ -23,6 +30,13 @@
             "namespaces": {
                 "Components": 1
             }
+        },
+        "addon/components/embric-static-text-editor/component.js": {
+            "name": "addon/components/embric-static-text-editor/component.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
         },
         "addon/components/fabric-canvas/component.js": {
             "name": "addon/components/fabric-canvas/component.js",
@@ -49,7 +63,7 @@
             "namespace": "Components",
             "file": "addon/components/embric-editor/component.js",
             "line": 17,
-            "description": "Mediates the connection between embric components and a `Fabric Canvas`. It also wraps\nFabric selections in an {{#crossLink \"Utils.SelectionProxy\"}}{{/crossLink}}, so that properties\nof the current selection can be bound. The various mixins that are used to implement\neditor widgets assume that an instance of `EmbricEditor` is bound to their `editor`\nproperty.\n\n### Example\n\n```htmlbars\n/{{#embric-editor as |editor| }}\n  <h2>Editor</h2>\n  /{{fabric-canvas width=800 height=300 editor=editor }}\n  <div class=\"editor-controls-panel\">\n    <h3>Controls</h3>\n    <div class=\"control-column\">\n      /{{embric-fill-stroke-editor editor=editor}}\n      /{{embric-basic-shapes-widget editor=editor}}\n      /{{embric-static-text-editor editor=editor}}\n    </div>\n    <div class=\"control-column\">\n      /{{embric-group-editor editor=editor}}\n      /{{embric-duplicate-selection editor=editor}}\n      /{{embric-delete-selection editor=editor}}\n      /{{embric-zindex-editor editor=editor}}\n    </div>\n  </div>\n/{{/embric-editor}}\n```",
+            "description": "Mediates the connection between embric components and a `Fabric Canvas`. It also wraps\nFabric selections in an {{#crossLink \"Utils.SelectionProxy\"}}{{/crossLink}}, so that properties\nof the current selection can be bound. The various mixins that are used to implement\neditor widgets assume that an instance of `EmbricEditor` is bound to their `editor`\nproperty.\n\n### Example\n\n```htmlbars\n\\{{#embric-editor as |editor| }}\n  <h2>Editor</h2>\n  \\{{fabric-canvas width=800 height=300 editor=editor }}\n  <div class=\"editor-controls-panel\">\n    <h3>Controls</h3>\n    <div class=\"control-column\">\n      \\{{embric-fill-stroke-editor editor=editor}}\n      \\{{embric-basic-shapes-widget editor=editor}}\n      \\{{embric-static-text-editor editor=editor}}\n    </div>\n    <div class=\"control-column\">\n      \\{{embric-group-editor editor=editor}}\n      \\{{embric-duplicate-selection editor=editor}}\n      \\{{embric-delete-selection editor=editor}}\n      \\{{embric-zindex-editor editor=editor}}\n    </div>\n  </div>\n\\{{/embric-editor}}\n```",
             "extends": "Ember.Component",
             "access": "public",
             "tagname": ""
@@ -71,11 +85,39 @@
             "tagname": ""
         }
     },
-    "elements": {},
+    "elements": {
+        "embric-basic-shapes-widget": {
+            "name": "embric-basic-shapes-widget",
+            "attributes": [],
+            "file": "addon/components/embric-basic-shapes-widget/component.js",
+            "line": 5,
+            "description": "Widget that provides a `select` with a list of shapes. When the user clicks\n`Add`, the shape is added to the canvas.\n\n### Follows Selection\nIf there is an active selection, the shape will be drawn with attributes\ntaken from it, and positioned on top of it. Otherwise the shape will be\ndrawn in the center of the canvas with defaults of fill:black & sized to\nfit in a 50px square bounds.",
+            "uses": [
+                "ShapesSupport"
+            ]
+        },
+        "embric-editor": {
+            "name": "embric-editor",
+            "attributes": [],
+            "file": "addon/components/embric-editor/component.js",
+            "line": 52,
+            "description": "The top-level embric component, `embric-editor` contains no markup and yields an instance\nthat interface widgets can bind to.\nWhen an included {{#crossLink \"Elements.fabric-canvas\"}}{{/crossLink}} is bound to an instance\nof `embric-editor`, when it creates its fabric canvas it will register it with the bound editor,\nmaking the fabric selection and canvas available to widgets bound to the same instance\nof `embric-editor`."
+        },
+        "embric-static-text-editor": {
+            "name": "embric-static-text-editor",
+            "attributes": [],
+            "file": "addon/components/embric-static-text-editor/component.js",
+            "line": 5,
+            "description": "Widget that provides a `textarea` for entering/editing text, and a `select`\nfor choosing a font.\n\nIt expects fonts to be bound to `fontList` in the following form:\n\n```javascript\nEmber.A([\n  { cssName: 'Arial Black', displayName: 'Arial Black' },\n  { cssName: 'Helvetica', displayName: 'Helvetica' }\n])\n```",
+            "uses": [
+                "ShapesSupport"
+            ]
+        }
+    },
     "classitems": [
         {
             "file": "addon/components/embric-editor/component.js",
-            "line": 56,
+            "line": 65,
             "description": "The fabric `canvas` object the editor is managing.",
             "itemtype": "property",
             "name": "canvas",
@@ -87,7 +129,7 @@
         },
         {
             "file": "addon/components/embric-editor/component.js",
-            "line": 76,
+            "line": 85,
             "description": "A proxy for the current selection in the `fabric canvas`.\nNormal ember get/set semantics can be used with this\nobject.\nIf there are multiple objects selected, getters return a\nproperty if it has the same value for all objects in the\nselection, and setters set the property recursively on\nall objects in the selection.",
             "itemtype": "property",
             "name": "selection",
@@ -95,6 +137,15 @@
             "access": "public",
             "tagname": "",
             "class": "Components.EmbricEditor",
+            "namespace": "Components"
+        },
+        {
+            "file": "addon/components/embric-static-text-editor/component.js",
+            "line": 27,
+            "description": "The list of available fonts.",
+            "itemtype": "property",
+            "name": "",
+            "class": "Components.FabricCanvas",
             "namespace": "Components"
         },
         {

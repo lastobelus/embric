@@ -233,7 +233,7 @@ label {
     margin-left: -16px;
   }
 
-  #api-classes {
+  #api-classes, #api-modules, #api-elements {
     font-size: 13px;
   }
 }

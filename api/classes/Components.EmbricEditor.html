@@ -22,12 +22,12 @@
             <li class="divider-vertical"></li>
             <li>
                 <p class="navbar-text">
-                    API Docs for Version: <b>0.0.0.4d72f612</b>
+                    API Docs for Version: <b>0.0.0.04b029ac</b>
                 </p>
             </li>
         </div>
         <form class="navbar-form pull-right" style="line-height: 40px; height: 40px;">
-            <input style="margin-top: 0;" type="text" class="search-query" placeholder="Search for classes/modules..." data-obj='["classes/Components.EmbricEditor", "classes/Components.FabricCanvas"]'>
+            <input style="margin-top: 0;" type="text" class="search-query" placeholder="Search for classes/modules/elements..." data-obj='["classes/Components.EmbricEditor", "classes/Components.FabricCanvas"]'>
         </form>
     </div>
 </div>
@@ -38,7 +38,9 @@
 	        <div id="sidebar">
 	            <ul id="main-nav" class="nav nav-tabs" style="margin-bottom:0;">
 	                <li class="active"><a href="#classes" data-toggle="tab">Classes</a></li>
-	                <li><a href="#modules" data-toggle="tab">Modules</a></li>
+	    
+	                <li ><a href="#elements" data-toggle="tab">Components</a></li>
+	    
 	            </ul>
 	    
 	            <div id="api-tabview-filter">
@@ -53,10 +55,14 @@
 	                    </ul>
 	                </div>
 	    
-	                <div class="tab-pane" id="modules">
-	                    <ul id="api-modules" class="nav nav-list">
+	                  <div class="tab-pane" id="elements">
+	                    <ul id="api-elements" class="nav nav-list">
+	                        <li><a href="../elements/embric-basic-shapes-widget.html">&lt;embric-basic-shapes-widget&gt;</a></li>
+	                        <li><a href="../elements/embric-editor.html">&lt;embric-editor&gt;</a></li>
+	                        <li><a href="../elements/embric-static-text-editor.html">&lt;embric-static-text-editor&gt;</a></li>
 	                    </ul>
-	                </div>
+	                  </div>
+	    
 	            </div>
 	        </div>
 	    </div>
@@ -108,29 +114,29 @@
 
 <div class="well well-small">
     <p>Mediates the connection between embric components and a <code>Fabric Canvas</code>. It also wraps
-Fabric selections in an {{#crossLink "Utils.SelectionProxy"}}{{/crossLink}}, so that properties
+Fabric selections in an Utils.SelectionProxy, so that properties
 of the current selection can be bound. The various mixins that are used to implement
 editor widgets assume that an instance of <code>EmbricEditor</code> is bound to their <code>editor</code>
 property.</p>
 <h3>Example</h3>
-<pre class="code prettyprint"><code class="language-htmlbars">/{{#embric-editor as |editor| }}
+<pre class="code prettyprint"><code class="language-htmlbars">{{#embric-editor as |editor| }}
   &lt;h2&gt;Editor&lt;/h2&gt;
-  /{{fabric-canvas width=800 height=300 editor=editor }}
+  {{fabric-canvas width=800 height=300 editor=editor }}
   &lt;div class="editor-controls-panel"&gt;
     &lt;h3&gt;Controls&lt;/h3&gt;
     &lt;div class="control-column"&gt;
-      /{{embric-fill-stroke-editor editor=editor}}
-      /{{embric-basic-shapes-widget editor=editor}}
-      /{{embric-static-text-editor editor=editor}}
+      {{embric-fill-stroke-editor editor=editor}}
+      {{embric-basic-shapes-widget editor=editor}}
+      {{embric-static-text-editor editor=editor}}
     &lt;/div&gt;
     &lt;div class="control-column"&gt;
-      /{{embric-group-editor editor=editor}}
-      /{{embric-duplicate-selection editor=editor}}
-      /{{embric-delete-selection editor=editor}}
-      /{{embric-zindex-editor editor=editor}}
+      {{embric-group-editor editor=editor}}
+      {{embric-duplicate-selection editor=editor}}
+      {{embric-delete-selection editor=editor}}
+      {{embric-zindex-editor editor=editor}}
     &lt;/div&gt;
   &lt;/div&gt;
-/{{/embric-editor}}
+{{/embric-editor}}
 </code></pre>
 
 </div>
@@ -3281,7 +3287,7 @@ property.</p>
                         <div class="meta">
                                     <p>
                                     Defined in
-                            <a href="../files/addon_components_embric-editor_component.js.html#l56"><code>addon&#x2F;components&#x2F;embric-editor&#x2F;component.js:56</code></a>
+                            <a href="../files/addon_components_embric-editor_component.js.html#l65"><code>addon&#x2F;components&#x2F;embric-editor&#x2F;component.js:65</code></a>
                             </p>
                     
                     
@@ -3850,7 +3856,7 @@ property.</p>
                         <div class="meta">
                                     <p>
                                     Defined in
-                            <a href="../files/addon_components_embric-editor_component.js.html#l76"><code>addon&#x2F;components&#x2F;embric-editor&#x2F;component.js:76</code></a>
+                            <a href="../files/addon_components_embric-editor_component.js.html#l85"><code>addon&#x2F;components&#x2F;embric-editor&#x2F;component.js:85</code></a>
                             </p>
                     
                     

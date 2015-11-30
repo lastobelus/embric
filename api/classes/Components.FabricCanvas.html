@@ -22,12 +22,12 @@
             <li class="divider-vertical"></li>
             <li>
                 <p class="navbar-text">
-                    API Docs for Version: <b>0.0.0.4d72f612</b>
+                    API Docs for Version: <b>0.0.0.04b029ac</b>
                 </p>
             </li>
         </div>
         <form class="navbar-form pull-right" style="line-height: 40px; height: 40px;">
-            <input style="margin-top: 0;" type="text" class="search-query" placeholder="Search for classes/modules..." data-obj='["classes/Components.EmbricEditor", "classes/Components.FabricCanvas"]'>
+            <input style="margin-top: 0;" type="text" class="search-query" placeholder="Search for classes/modules/elements..." data-obj='["classes/Components.EmbricEditor", "classes/Components.FabricCanvas"]'>
         </form>
     </div>
 </div>
@@ -38,7 +38,9 @@
 	        <div id="sidebar">
 	            <ul id="main-nav" class="nav nav-tabs" style="margin-bottom:0;">
 	                <li class="active"><a href="#classes" data-toggle="tab">Classes</a></li>
-	                <li><a href="#modules" data-toggle="tab">Modules</a></li>
+	    
+	                <li ><a href="#elements" data-toggle="tab">Components</a></li>
+	    
 	            </ul>
 	    
 	            <div id="api-tabview-filter">
@@ -53,10 +55,14 @@
 	                    </ul>
 	                </div>
 	    
-	                <div class="tab-pane" id="modules">
-	                    <ul id="api-modules" class="nav nav-list">
+	                  <div class="tab-pane" id="elements">
+	                    <ul id="api-elements" class="nav nav-list">
+	                        <li><a href="../elements/embric-basic-shapes-widget.html">&lt;embric-basic-shapes-widget&gt;</a></li>
+	                        <li><a href="../elements/embric-editor.html">&lt;embric-editor&gt;</a></li>
+	                        <li><a href="../elements/embric-static-text-editor.html">&lt;embric-static-text-editor&gt;</a></li>
 	                    </ul>
-	                </div>
+	                  </div>
+	    
 	            </div>
 	        </div>
 	    </div>
@@ -304,27 +310,23 @@
 
                     <ul class="index-list properties extends">
                             <li class="index-item property public inherited">
-                                <a href="#" data-tabid="#properties" data-anchor="#property_actions" data-tablink="actions">actions</a>
-
-                            </li>
-                            <li class="index-item property public inherited">
-                                <a href="#" data-tabid="#properties" data-anchor="#property_ariaRole" data-tablink="ariaRole">ariaRole</a>
-
-                            </li>
-                            <li class="index-item property public">
-                                <a href="#" data-tabid="#properties" data-anchor="#property_attributeBindings" data-tablink="attributeBindings">attributeBindings</a>
-
-                            </li>
-                            <li class="index-item property public inherited">
                                 <a href="#" data-tabid="#properties" data-anchor="#property_classNameBindings" data-tablink="classNameBindings">classNameBindings</a>
 
                             </li>
-                            <li class="index-item property public inherited">
-                                <a href="#" data-tabid="#properties" data-anchor="#property_classNames" data-tablink="classNames">classNames</a>
+                            <li class="index-item property">
+                                <a href="#" data-tabid="#properties" data-anchor="#property_" data-tablink=""></a>
 
                             </li>
-                            <li class="index-item property public inherited">
-                                <a href="#" data-tabid="#properties" data-anchor="#property_concatenatedProperties" data-tablink="concatenatedProperties">concatenatedProperties</a>
+                            <li class="index-item property public">
+                                <a href="#" data-tabid="#properties" data-anchor="#property_height" data-tablink="height">height</a>
+
+                            </li>
+                            <li class="index-item property public">
+                                <a href="#" data-tabid="#properties" data-anchor="#property_width" data-tablink="width">width</a>
+
+                            </li>
+                            <li class="index-item property private inherited">
+                                <a href="#" data-tabid="#properties" data-anchor="#property_targetObject" data-tablink="targetObject">targetObject</a>
 
                             </li>
                             <li class="index-item property public inherited">
@@ -335,12 +337,40 @@
                                 <a href="#" data-tabid="#properties" data-anchor="#property_hasBlockParams" data-tablink="hasBlockParams">hasBlockParams</a>
 
                             </li>
+                            <li class="index-item property public inherited">
+                                <a href="#" data-tabid="#properties" data-anchor="#property_ariaRole" data-tablink="ariaRole">ariaRole</a>
+
+                            </li>
+                            <li class="index-item property public inherited">
+                                <a href="#" data-tabid="#properties" data-anchor="#property_classNames" data-tablink="classNames">classNames</a>
+
+                            </li>
                             <li class="index-item property public">
-                                <a href="#" data-tabid="#properties" data-anchor="#property_height" data-tablink="height">height</a>
+                                <a href="#" data-tabid="#properties" data-anchor="#property_attributeBindings" data-tablink="attributeBindings">attributeBindings</a>
 
                             </li>
                             <li class="index-item property public inherited">
                                 <a href="#" data-tabid="#properties" data-anchor="#property_instrumentDisplay" data-tablink="instrumentDisplay">instrumentDisplay</a>
+
+                            </li>
+                            <li class="index-item property public inherited">
+                                <a href="#" data-tabid="#properties" data-anchor="#property_isVisible" data-tablink="isVisible">isVisible</a>
+
+                            </li>
+                            <li class="index-item property private inherited">
+                                <a href="#" data-tabid="#properties" data-anchor="#property_parentView" data-tablink="parentView">parentView</a>
+
+                            </li>
+                            <li class="index-item property public inherited">
+                                <a href="#" data-tabid="#properties" data-anchor="#property_actions" data-tablink="actions">actions</a>
+
+                            </li>
+                            <li class="index-item property public inherited">
+                                <a href="#" data-tabid="#properties" data-anchor="#property_concatenatedProperties" data-tablink="concatenatedProperties">concatenatedProperties</a>
+
+                            </li>
+                            <li class="index-item property public inherited">
+                                <a href="#" data-tabid="#properties" data-anchor="#property_mergedProperties" data-tablink="mergedProperties">mergedProperties</a>
 
                             </li>
                             <li class="index-item property public inherited">
@@ -349,26 +379,6 @@
                             </li>
                             <li class="index-item property public inherited">
                                 <a href="#" data-tabid="#properties" data-anchor="#property_isDestroying" data-tablink="isDestroying">isDestroying</a>
-
-                            </li>
-                            <li class="index-item property public inherited">
-                                <a href="#" data-tabid="#properties" data-anchor="#property_isVisible" data-tablink="isVisible">isVisible</a>
-
-                            </li>
-                            <li class="index-item property public inherited">
-                                <a href="#" data-tabid="#properties" data-anchor="#property_mergedProperties" data-tablink="mergedProperties">mergedProperties</a>
-
-                            </li>
-                            <li class="index-item property private inherited">
-                                <a href="#" data-tabid="#properties" data-anchor="#property_parentView" data-tablink="parentView">parentView</a>
-
-                            </li>
-                            <li class="index-item property private inherited">
-                                <a href="#" data-tabid="#properties" data-anchor="#property_targetObject" data-tablink="targetObject">targetObject</a>
-
-                            </li>
-                            <li class="index-item property public">
-                                <a href="#" data-tabid="#properties" data-anchor="#property_width" data-tablink="width">width</a>
 
                             </li>
                     </ul>
@@ -3085,204 +3095,6 @@
             <div id="properties" class="tab-pane">
                 <h2 class="off-left">Properties</h2>
 
-                    <div id="property_actions" class="property item public inherited">
-                        <h3 class="name"><code>actions</code></h3>
-                        <span class="type">Object</span>
-                    
-                    
-                            <span class="flag public">public</span>
-                    
-                    
-                    
-                        <div class="meta">
-                                    <p>Inherited from
-                                    <a href="https://github.com/emberjs/ember.js/blob/v2.2.0classes/Ember.ActionHandler.html#property_actions">Ember.ActionHandler</a>:
-                            <a href="https://github.com/emberjs/ember.js/blob/v2.2.0files/packages_ember-runtime_lib_mixins_action_handler.js.html#l24"><code>packages&#x2F;ember-runtime&#x2F;lib&#x2F;mixins&#x2F;action_handler.js:24</code></a>
-                            </p>
-                    
-                    
-                        </div>
-                    
-                        <div class="description">
-                            The collection of functions, keyed by name, available on this
-                    <code>ActionHandler</code> as action targets.
-                    
-                    These functions will be invoked when a matching <code>{{action}}</code> is triggered
-                    from within a template and the application's current route is this route.
-                    
-                    Actions can also be invoked from other parts of your application
-                    via <code>ActionHandler#send</code>.
-                    
-                    The <code>actions</code> hash will inherit action handlers from
-                    the <code>actions</code> hash defined on extended parent classes
-                    or mixins rather than just replace the entire hash, e.g.:
-                    
-                    <code>&#x60;</code>js
-                    App.CanDisplayBanner = Ember.Mixin.create({
-                      actions: {
-                        displayBanner: function(msg) {
-                          // ...
-                        }
-                      }
-                    });
-                    
-                    App.WelcomeRoute = Ember.Route.extend(App.CanDisplayBanner, {
-                      actions: {
-                        playMusic: function() {
-                          // ...
-                        }
-                      }
-                    });
-                    
-                    // <code>WelcomeRoute</code>, when active, will be able to respond
-                    // to both actions, since the actions hash is merged rather
-                    // then replaced when extending mixins / parent classes.
-                    this.send('displayBanner');
-                    this.send('playMusic');
-                    <code>&#x60;</code>
-                    
-                    Within a Controller, Route, View or Component's action handler,
-                    the value of the <code>this</code> context is the Controller, Route, View or
-                    Component object:
-                    
-                    <code>&#x60;</code>js
-                    App.SongRoute = Ember.Route.extend({
-                      actions: {
-                        myAction: function() {
-                          this.controllerFor("song");
-                          this.transitionTo("other.route");
-                          ...
-                        }
-                      }
-                    });
-                    <code>&#x60;</code>
-                    
-                    It is also possible to call <code>this._super.apply(this, arguments)</code> from within an
-                    action handler if it overrides a handler defined on a parent
-                    class or mixin:
-                    
-                    Take for example the following routes:
-                    
-                    <code>&#x60;</code>js
-                    App.DebugRoute = Ember.Mixin.create({
-                      actions: {
-                        debugRouteInformation: function() {
-                          console.debug("trololo");
-                        }
-                      }
-                    });
-                    
-                    App.AnnoyingDebugRoute = Ember.Route.extend(App.DebugRoute, {
-                      actions: {
-                        debugRouteInformation: function() {
-                          // also call the debugRouteInformation of mixed in App.DebugRoute
-                          this._super.apply(this, arguments);
-                    
-                          // show additional annoyance
-                          window.alert(...);
-                        }
-                      }
-                    });
-                    <code>&#x60;</code>
-                    
-                    ## Bubbling
-                    
-                    By default, an action will stop bubbling once a handler defined
-                    on the <code>actions</code> hash handles it. To continue bubbling the action,
-                    you must return <code>true</code> from the handler:
-                    
-                    <code>&#x60;</code>js
-                    App.Router.map(function() {
-                      this.route("album", function() {
-                        this.route("song");
-                      });
-                    });
-                    
-                    App.AlbumRoute = Ember.Route.extend({
-                      actions: {
-                        startPlaying: function() {
-                        }
-                      }
-                    });
-                    
-                    App.AlbumSongRoute = Ember.Route.extend({
-                      actions: {
-                        startPlaying: function() {
-                          // ...
-                    
-                          if (actionShouldAlsoBeTriggeredOnParentRoute) {
-                            return true;
-                          }
-                        }
-                      }
-                    });
-                    <code>&#x60;</code>
-                        </div>
-                    
-                            <p><strong>Default:</strong> null</p>
-                    
-                    
-                    </div>
-                    <div id="property_ariaRole" class="property item public inherited">
-                        <h3 class="name"><code>ariaRole</code></h3>
-                        <span class="type"><a href="https://github.com/emberjs/ember.js/blob/v2.2.0classes/String.html" class="crosslink external" target="_blank">String</a></span>
-                    
-                    
-                            <span class="flag public">public</span>
-                    
-                    
-                    
-                        <div class="meta">
-                                    <p>Inherited from
-                                    <a href="https://github.com/emberjs/ember.js/blob/v2.2.0classes/Ember.AriaRoleSupport.html#property_ariaRole">Ember.AriaRoleSupport</a>:
-                            <a href="https://github.com/emberjs/ember.js/blob/v2.2.0files/packages_ember-views_lib_mixins_aria_role_support.js.html#l16"><code>packages&#x2F;ember-views&#x2F;lib&#x2F;mixins&#x2F;aria_role_support.js:16</code></a>
-                            </p>
-                    
-                    
-                        </div>
-                    
-                        <div class="description">
-                            The WAI-ARIA role of the control represented by this view. For example, a
-                    button may have a role of type 'button', or a pane may have a role of
-                    type 'alertdialog'. This property is used by assistive software to help
-                    visually challenged users navigate rich web applications.
-                    
-                    The full list of valid WAI-ARIA roles is available at:
-                    [http://www.w3.org/TR/wai-aria/roles#roles_categorization](http://www.w3.org/TR/wai-aria/roles#roles_categorization)
-                        </div>
-                    
-                            <p><strong>Default:</strong> null</p>
-                    
-                    
-                    </div>
-                    <div id="property_attributeBindings" class="property item public">
-                        <h3 class="name"><code>attributeBindings</code></h3>
-                        <span class="type">Array</span>
-                    
-                    
-                            <span class="flag public">public</span>
-                    
-                    
-                    
-                        <div class="meta">
-                                    <p>
-                                    Defined in
-                            <a href="../files/addon_components_fabric-canvas_component.js.html#l25"><code>addon&#x2F;components&#x2F;fabric-canvas&#x2F;component.js:25</code></a>
-                            </p>
-                    
-                    
-                        </div>
-                    
-                        <div class="description">
-                            <p>Because of the way Fabric works, the <code>height</code> and <code>width</code>
-                    of the canvas must be set as <code>HTML</code> attributes. <code>CSS</code>-defined
-                    <code>height</code> and <code>width</code> will be ignored.</p>
-                    
-                        </div>
-                    
-                    
-                    
-                    </div>
                     <div id="property_classNameBindings" class="property item public inherited">
                         <h3 class="name"><code>classNameBindings</code></h3>
                         <span class="type">Array</span>
@@ -3343,37 +3155,34 @@
                     
                     
                     </div>
-                    <div id="property_classNames" class="property item public inherited">
-                        <h3 class="name"><code>classNames</code></h3>
-                        <span class="type">Array</span>
+                    <div id="property_" class="property item">
+                        <h3 class="name"><code></code></h3>
+                        <span class="type">Unknown</span>
                     
                     
-                            <span class="flag public">public</span>
                     
                     
                     
                         <div class="meta">
-                                    <p>Inherited from
-                                    <a href="https://github.com/emberjs/ember.js/blob/v2.2.0classes/Ember.ClassNamesSupport.html#property_classNames">Ember.ClassNamesSupport</a>:
-                            <a href="https://github.com/emberjs/ember.js/blob/v2.2.0files/packages_ember-views_lib_mixins_class_names_support.js.html#l29"><code>packages&#x2F;ember-views&#x2F;lib&#x2F;mixins&#x2F;class_names_support.js:29</code></a>
+                                    <p>
+                                    Defined in
+                            <a href="../files/addon_components_embric-static-text-editor_component.js.html#l27"><code>addon&#x2F;components&#x2F;embric-static-text-editor&#x2F;component.js:27</code></a>
                             </p>
                     
                     
                         </div>
                     
                         <div class="description">
-                            Standard CSS class names to apply to the view's outer element. This
-                    property automatically inherits any class names defined by the view's
-                    superclasses as well.
+                            <p>The list of available fonts.</p>
+                    
                         </div>
                     
-                            <p><strong>Default:</strong> [&#x27;ember-view&#x27;]</p>
                     
                     
                     </div>
-                    <div id="property_concatenatedProperties" class="property item public inherited">
-                        <h3 class="name"><code>concatenatedProperties</code></h3>
-                        <span class="type">Array</span>
+                    <div id="property_height" class="property item public">
+                        <h3 class="name"><code>height</code></h3>
+                        <span class="type">Integer</span>
                     
                     
                             <span class="flag public">public</span>
@@ -3381,75 +3190,69 @@
                     
                     
                         <div class="meta">
-                                    <p>Inherited from
-                                    <a href="https://github.com/emberjs/ember.js/blob/v2.2.0classes/Ember.CoreObject.html#property_concatenatedProperties">Ember.CoreObject</a>:
-                            <a href="https://github.com/emberjs/ember.js/blob/v2.2.0files/packages_ember-runtime_lib_system_core_object.js.html#l273"><code>packages&#x2F;ember-runtime&#x2F;lib&#x2F;system&#x2F;core_object.js:273</code></a>
+                                    <p>
+                                    Defined in
+                            <a href="../files/addon_components_fabric-canvas_component.js.html#l35"><code>addon&#x2F;components&#x2F;fabric-canvas&#x2F;component.js:35</code></a>
                             </p>
                     
                     
                         </div>
                     
                         <div class="description">
-                            Defines the properties that will be concatenated from the superclass
-                    (instead of overridden).
+                            <p>The <code>HTML</code> <code>height</code> of the fabric canvas.</p>
                     
-                    By default, when you extend an Ember class a property defined in
-                    the subclass overrides a property with the same name that is defined
-                    in the superclass. However, there are some cases where it is preferable
-                    to build up a property's value by combining the superclass' property
-                    value with the subclass' value. An example of this in use within Ember
-                    is the <code>classNames</code> property of <code>Ember.View</code>.
+                        </div>
                     
-                    Here is some sample code showing the difference between a concatenated
-                    property and a normal one:
                     
-                    <code>&#x60;</code>javascript
-                    App.BarView = Ember.View.extend({
-                      someNonConcatenatedProperty: ['bar'],
-                      classNames: ['bar']
-                    });
                     
-                    App.FooBarView = App.BarView.extend({
-                      someNonConcatenatedProperty: ['foo'],
-                      classNames: ['foo']
-                    });
+                    </div>
+                    <div id="property_width" class="property item public">
+                        <h3 class="name"><code>width</code></h3>
+                        <span class="type">Integer</span>
                     
-                    var fooBarView = App.FooBarView.create();
-                    fooBarView.get('someNonConcatenatedProperty'); // ['foo']
-                    fooBarView.get('classNames'); // ['ember-view', 'bar', 'foo']
-                    <code>&#x60;</code>
                     
-                    This behavior extends to object creation as well. Continuing the
-                    above example:
+                            <span class="flag public">public</span>
                     
-                    <code>&#x60;</code>javascript
-                    var view = App.FooBarView.create({
-                      someNonConcatenatedProperty: ['baz'],
-                      classNames: ['baz']
-                    })
-                    view.get('someNonConcatenatedProperty'); // ['baz']
-                    view.get('classNames'); // ['ember-view', 'bar', 'foo', 'baz']
-                    <code>&#x60;</code>
-                    Adding a single property that is not an array will just add it in the array:
                     
-                    <code>&#x60;</code>javascript
-                    var view = App.FooBarView.create({
-                      classNames: 'baz'
-                    })
-                    view.get('classNames'); // ['ember-view', 'bar', 'foo', 'baz']
-                    <code>&#x60;</code>
                     
-                    Using the <code>concatenatedProperties</code> property, we can tell Ember to mix the
-                    content of the properties.
+                        <div class="meta">
+                                    <p>
+                                    Defined in
+                            <a href="../files/addon_components_fabric-canvas_component.js.html#l43"><code>addon&#x2F;components&#x2F;fabric-canvas&#x2F;component.js:43</code></a>
+                            </p>
                     
-                    In <code>Ember.View</code> the <code>classNameBindings</code> and <code>attributeBindings</code> properties
-                    are also concatenated, in addition to <code>classNames</code>.
                     
-                    This feature is available for you to use throughout the Ember object model,
-                    although typical app developers are likely to use it infrequently. Since
-                    it changes expectations about behavior of properties, you should properly
-                    document its usage in each individual concatenated property (to not
-                    mislead your users to think they can override the property in a subclass).
+                        </div>
+                    
+                        <div class="description">
+                            <p>The <code>HTML</code> <code>height</code> of the fabric canvas.</p>
+                    
+                        </div>
+                    
+                    
+                    
+                    </div>
+                    <div id="property_targetObject" class="property item private inherited">
+                        <h3 class="name"><code>targetObject</code></h3>
+                        <span class="type"><a href="https://github.com/emberjs/ember.js/blob/v2.2.0classes/Ember.Controller.html" class="crosslink external" target="_blank">Ember.Controller</a></span>
+                    
+                    
+                            <span class="flag private">private</span>
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>Inherited from
+                                    <a href="https://github.com/emberjs/ember.js/blob/v2.2.0classes/Ember.Component.html#property_targetObject">Ember.Component</a>:
+                            <a href="https://github.com/emberjs/ember.js/blob/v2.2.0files/packages_ember-views_lib_components_component.js.html#l180"><code>packages&#x2F;ember-views&#x2F;lib&#x2F;components&#x2F;component.js:180</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            If the component is currently inserted into the DOM of a parent view, this
+                    property will point to the controller of the parent view.
                         </div>
                     
                             <p><strong>Default:</strong> null</p>
@@ -3605,9 +3408,69 @@
                     
                     
                     </div>
-                    <div id="property_height" class="property item public">
-                        <h3 class="name"><code>height</code></h3>
-                        <span class="type">Integer</span>
+                    <div id="property_ariaRole" class="property item public inherited">
+                        <h3 class="name"><code>ariaRole</code></h3>
+                        <span class="type"><a href="https://github.com/emberjs/ember.js/blob/v2.2.0classes/String.html" class="crosslink external" target="_blank">String</a></span>
+                    
+                    
+                            <span class="flag public">public</span>
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>Inherited from
+                                    <a href="https://github.com/emberjs/ember.js/blob/v2.2.0classes/Ember.AriaRoleSupport.html#property_ariaRole">Ember.AriaRoleSupport</a>:
+                            <a href="https://github.com/emberjs/ember.js/blob/v2.2.0files/packages_ember-views_lib_mixins_aria_role_support.js.html#l16"><code>packages&#x2F;ember-views&#x2F;lib&#x2F;mixins&#x2F;aria_role_support.js:16</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            The WAI-ARIA role of the control represented by this view. For example, a
+                    button may have a role of type 'button', or a pane may have a role of
+                    type 'alertdialog'. This property is used by assistive software to help
+                    visually challenged users navigate rich web applications.
+                    
+                    The full list of valid WAI-ARIA roles is available at:
+                    [http://www.w3.org/TR/wai-aria/roles#roles_categorization](http://www.w3.org/TR/wai-aria/roles#roles_categorization)
+                        </div>
+                    
+                            <p><strong>Default:</strong> null</p>
+                    
+                    
+                    </div>
+                    <div id="property_classNames" class="property item public inherited">
+                        <h3 class="name"><code>classNames</code></h3>
+                        <span class="type">Array</span>
+                    
+                    
+                            <span class="flag public">public</span>
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>Inherited from
+                                    <a href="https://github.com/emberjs/ember.js/blob/v2.2.0classes/Ember.ClassNamesSupport.html#property_classNames">Ember.ClassNamesSupport</a>:
+                            <a href="https://github.com/emberjs/ember.js/blob/v2.2.0files/packages_ember-views_lib_mixins_class_names_support.js.html#l29"><code>packages&#x2F;ember-views&#x2F;lib&#x2F;mixins&#x2F;class_names_support.js:29</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            Standard CSS class names to apply to the view's outer element. This
+                    property automatically inherits any class names defined by the view's
+                    superclasses as well.
+                        </div>
+                    
+                            <p><strong>Default:</strong> [&#x27;ember-view&#x27;]</p>
+                    
+                    
+                    </div>
+                    <div id="property_attributeBindings" class="property item public">
+                        <h3 class="name"><code>attributeBindings</code></h3>
+                        <span class="type">Array</span>
                     
                     
                             <span class="flag public">public</span>
@@ -3617,14 +3480,16 @@
                         <div class="meta">
                                     <p>
                                     Defined in
-                            <a href="../files/addon_components_fabric-canvas_component.js.html#l35"><code>addon&#x2F;components&#x2F;fabric-canvas&#x2F;component.js:35</code></a>
+                            <a href="../files/addon_components_fabric-canvas_component.js.html#l25"><code>addon&#x2F;components&#x2F;fabric-canvas&#x2F;component.js:25</code></a>
                             </p>
                     
                     
                         </div>
                     
                         <div class="description">
-                            <p>The <code>HTML</code> <code>height</code> of the fabric canvas.</p>
+                            <p>Because of the way Fabric works, the <code>height</code> and <code>width</code>
+                    of the canvas must be set as <code>HTML</code> attributes. <code>CSS</code>-defined
+                    <code>height</code> and <code>width</code> will be ignored.</p>
                     
                         </div>
                     
@@ -3656,64 +3521,6 @@
                     
                     
                     </div>
-                    <div id="property_isDestroyed" class="property item public inherited">
-                        <h3 class="name"><code>isDestroyed</code></h3>
-                        <span class="type">Unknown</span>
-                    
-                    
-                            <span class="flag public">public</span>
-                    
-                    
-                    
-                        <div class="meta">
-                                    <p>Inherited from
-                                    <a href="https://github.com/emberjs/ember.js/blob/v2.2.0classes/Ember.CoreObject.html#property_isDestroyed">Ember.CoreObject</a>:
-                            <a href="https://github.com/emberjs/ember.js/blob/v2.2.0files/packages_ember-runtime_lib_system_core_object.js.html#l411"><code>packages&#x2F;ember-runtime&#x2F;lib&#x2F;system&#x2F;core_object.js:411</code></a>
-                            </p>
-                    
-                    
-                        </div>
-                    
-                        <div class="description">
-                            Destroyed object property flag.
-                    
-                    if this property is <code>true</code> the observers and bindings were already
-                    removed by the effect of calling the <code>destroy()</code> method.
-                        </div>
-                    
-                            <p><strong>Default:</strong> false</p>
-                    
-                    
-                    </div>
-                    <div id="property_isDestroying" class="property item public inherited">
-                        <h3 class="name"><code>isDestroying</code></h3>
-                        <span class="type">Unknown</span>
-                    
-                    
-                            <span class="flag public">public</span>
-                    
-                    
-                    
-                        <div class="meta">
-                                    <p>Inherited from
-                                    <a href="https://github.com/emberjs/ember.js/blob/v2.2.0classes/Ember.CoreObject.html#property_isDestroying">Ember.CoreObject</a>:
-                            <a href="https://github.com/emberjs/ember.js/blob/v2.2.0files/packages_ember-runtime_lib_system_core_object.js.html#l423"><code>packages&#x2F;ember-runtime&#x2F;lib&#x2F;system&#x2F;core_object.js:423</code></a>
-                            </p>
-                    
-                    
-                        </div>
-                    
-                        <div class="description">
-                            Destruction scheduled flag. The <code>destroy()</code> method has been called.
-                    
-                    The object stays intact until the end of the run loop at which point
-                    the <code>isDestroyed</code> flag is set.
-                        </div>
-                    
-                            <p><strong>Default:</strong> false</p>
-                    
-                    
-                    </div>
                     <div id="property_isVisible" class="property item public inherited">
                         <h3 class="name"><code>isVisible</code></h3>
                         <span class="type">Boolean</span>
@@ -3734,6 +3541,256 @@
                     
                         <div class="description">
                             If <code>false</code>, the view will appear hidden in DOM.
+                        </div>
+                    
+                            <p><strong>Default:</strong> null</p>
+                    
+                    
+                    </div>
+                    <div id="property_parentView" class="property item private inherited">
+                        <h3 class="name"><code>parentView</code></h3>
+                        <span class="type"><a href="https://github.com/emberjs/ember.js/blob/v2.2.0classes/Ember.View.html" class="crosslink external" target="_blank">Ember.View</a></span>
+                    
+                    
+                            <span class="flag private">private</span>
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>Inherited from
+                                    <a href="https://github.com/emberjs/ember.js/blob/v2.2.0classes/Ember.CoreView.html#property_parentView">Ember.CoreView</a>:
+                            <a href="https://github.com/emberjs/ember.js/blob/v2.2.0files/packages_ember-views_lib_views_core_view.js.html#l62"><code>packages&#x2F;ember-views&#x2F;lib&#x2F;views&#x2F;core_view.js:62</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            If the view is currently inserted into the DOM of a parent view, this
+                    property will point to the parent of the view.
+                        </div>
+                    
+                            <p><strong>Default:</strong> null</p>
+                    
+                    
+                    </div>
+                    <div id="property_actions" class="property item public inherited">
+                        <h3 class="name"><code>actions</code></h3>
+                        <span class="type">Object</span>
+                    
+                    
+                            <span class="flag public">public</span>
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>Inherited from
+                                    <a href="https://github.com/emberjs/ember.js/blob/v2.2.0classes/Ember.ActionHandler.html#property_actions">Ember.ActionHandler</a>:
+                            <a href="https://github.com/emberjs/ember.js/blob/v2.2.0files/packages_ember-runtime_lib_mixins_action_handler.js.html#l24"><code>packages&#x2F;ember-runtime&#x2F;lib&#x2F;mixins&#x2F;action_handler.js:24</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            The collection of functions, keyed by name, available on this
+                    <code>ActionHandler</code> as action targets.
+                    
+                    These functions will be invoked when a matching <code>{{action}}</code> is triggered
+                    from within a template and the application's current route is this route.
+                    
+                    Actions can also be invoked from other parts of your application
+                    via <code>ActionHandler#send</code>.
+                    
+                    The <code>actions</code> hash will inherit action handlers from
+                    the <code>actions</code> hash defined on extended parent classes
+                    or mixins rather than just replace the entire hash, e.g.:
+                    
+                    <code>&#x60;</code>js
+                    App.CanDisplayBanner = Ember.Mixin.create({
+                      actions: {
+                        displayBanner: function(msg) {
+                          // ...
+                        }
+                      }
+                    });
+                    
+                    App.WelcomeRoute = Ember.Route.extend(App.CanDisplayBanner, {
+                      actions: {
+                        playMusic: function() {
+                          // ...
+                        }
+                      }
+                    });
+                    
+                    // <code>WelcomeRoute</code>, when active, will be able to respond
+                    // to both actions, since the actions hash is merged rather
+                    // then replaced when extending mixins / parent classes.
+                    this.send('displayBanner');
+                    this.send('playMusic');
+                    <code>&#x60;</code>
+                    
+                    Within a Controller, Route, View or Component's action handler,
+                    the value of the <code>this</code> context is the Controller, Route, View or
+                    Component object:
+                    
+                    <code>&#x60;</code>js
+                    App.SongRoute = Ember.Route.extend({
+                      actions: {
+                        myAction: function() {
+                          this.controllerFor("song");
+                          this.transitionTo("other.route");
+                          ...
+                        }
+                      }
+                    });
+                    <code>&#x60;</code>
+                    
+                    It is also possible to call <code>this._super.apply(this, arguments)</code> from within an
+                    action handler if it overrides a handler defined on a parent
+                    class or mixin:
+                    
+                    Take for example the following routes:
+                    
+                    <code>&#x60;</code>js
+                    App.DebugRoute = Ember.Mixin.create({
+                      actions: {
+                        debugRouteInformation: function() {
+                          console.debug("trololo");
+                        }
+                      }
+                    });
+                    
+                    App.AnnoyingDebugRoute = Ember.Route.extend(App.DebugRoute, {
+                      actions: {
+                        debugRouteInformation: function() {
+                          // also call the debugRouteInformation of mixed in App.DebugRoute
+                          this._super.apply(this, arguments);
+                    
+                          // show additional annoyance
+                          window.alert(...);
+                        }
+                      }
+                    });
+                    <code>&#x60;</code>
+                    
+                    ## Bubbling
+                    
+                    By default, an action will stop bubbling once a handler defined
+                    on the <code>actions</code> hash handles it. To continue bubbling the action,
+                    you must return <code>true</code> from the handler:
+                    
+                    <code>&#x60;</code>js
+                    App.Router.map(function() {
+                      this.route("album", function() {
+                        this.route("song");
+                      });
+                    });
+                    
+                    App.AlbumRoute = Ember.Route.extend({
+                      actions: {
+                        startPlaying: function() {
+                        }
+                      }
+                    });
+                    
+                    App.AlbumSongRoute = Ember.Route.extend({
+                      actions: {
+                        startPlaying: function() {
+                          // ...
+                    
+                          if (actionShouldAlsoBeTriggeredOnParentRoute) {
+                            return true;
+                          }
+                        }
+                      }
+                    });
+                    <code>&#x60;</code>
+                        </div>
+                    
+                            <p><strong>Default:</strong> null</p>
+                    
+                    
+                    </div>
+                    <div id="property_concatenatedProperties" class="property item public inherited">
+                        <h3 class="name"><code>concatenatedProperties</code></h3>
+                        <span class="type">Array</span>
+                    
+                    
+                            <span class="flag public">public</span>
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>Inherited from
+                                    <a href="https://github.com/emberjs/ember.js/blob/v2.2.0classes/Ember.CoreObject.html#property_concatenatedProperties">Ember.CoreObject</a>:
+                            <a href="https://github.com/emberjs/ember.js/blob/v2.2.0files/packages_ember-runtime_lib_system_core_object.js.html#l273"><code>packages&#x2F;ember-runtime&#x2F;lib&#x2F;system&#x2F;core_object.js:273</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            Defines the properties that will be concatenated from the superclass
+                    (instead of overridden).
+                    
+                    By default, when you extend an Ember class a property defined in
+                    the subclass overrides a property with the same name that is defined
+                    in the superclass. However, there are some cases where it is preferable
+                    to build up a property's value by combining the superclass' property
+                    value with the subclass' value. An example of this in use within Ember
+                    is the <code>classNames</code> property of <code>Ember.View</code>.
+                    
+                    Here is some sample code showing the difference between a concatenated
+                    property and a normal one:
+                    
+                    <code>&#x60;</code>javascript
+                    App.BarView = Ember.View.extend({
+                      someNonConcatenatedProperty: ['bar'],
+                      classNames: ['bar']
+                    });
+                    
+                    App.FooBarView = App.BarView.extend({
+                      someNonConcatenatedProperty: ['foo'],
+                      classNames: ['foo']
+                    });
+                    
+                    var fooBarView = App.FooBarView.create();
+                    fooBarView.get('someNonConcatenatedProperty'); // ['foo']
+                    fooBarView.get('classNames'); // ['ember-view', 'bar', 'foo']
+                    <code>&#x60;</code>
+                    
+                    This behavior extends to object creation as well. Continuing the
+                    above example:
+                    
+                    <code>&#x60;</code>javascript
+                    var view = App.FooBarView.create({
+                      someNonConcatenatedProperty: ['baz'],
+                      classNames: ['baz']
+                    })
+                    view.get('someNonConcatenatedProperty'); // ['baz']
+                    view.get('classNames'); // ['ember-view', 'bar', 'foo', 'baz']
+                    <code>&#x60;</code>
+                    Adding a single property that is not an array will just add it in the array:
+                    
+                    <code>&#x60;</code>javascript
+                    var view = App.FooBarView.create({
+                      classNames: 'baz'
+                    })
+                    view.get('classNames'); // ['ember-view', 'bar', 'foo', 'baz']
+                    <code>&#x60;</code>
+                    
+                    Using the <code>concatenatedProperties</code> property, we can tell Ember to mix the
+                    content of the properties.
+                    
+                    In <code>Ember.View</code> the <code>classNameBindings</code> and <code>attributeBindings</code> properties
+                    are also concatenated, in addition to <code>classNames</code>.
+                    
+                    This feature is available for you to use throughout the Ember object model,
+                    although typical app developers are likely to use it infrequently. Since
+                    it changes expectations about behavior of properties, you should properly
+                    document its usage in each individual concatenated property (to not
+                    mislead your users to think they can override the property in a subclass).
                         </div>
                     
                             <p><strong>Default:</strong> null</p>
@@ -3825,63 +3882,9 @@
                     
                     
                     </div>
-                    <div id="property_parentView" class="property item private inherited">
-                        <h3 class="name"><code>parentView</code></h3>
-                        <span class="type"><a href="https://github.com/emberjs/ember.js/blob/v2.2.0classes/Ember.View.html" class="crosslink external" target="_blank">Ember.View</a></span>
-                    
-                    
-                            <span class="flag private">private</span>
-                    
-                    
-                    
-                        <div class="meta">
-                                    <p>Inherited from
-                                    <a href="https://github.com/emberjs/ember.js/blob/v2.2.0classes/Ember.CoreView.html#property_parentView">Ember.CoreView</a>:
-                            <a href="https://github.com/emberjs/ember.js/blob/v2.2.0files/packages_ember-views_lib_views_core_view.js.html#l62"><code>packages&#x2F;ember-views&#x2F;lib&#x2F;views&#x2F;core_view.js:62</code></a>
-                            </p>
-                    
-                    
-                        </div>
-                    
-                        <div class="description">
-                            If the view is currently inserted into the DOM of a parent view, this
-                    property will point to the parent of the view.
-                        </div>
-                    
-                            <p><strong>Default:</strong> null</p>
-                    
-                    
-                    </div>
-                    <div id="property_targetObject" class="property item private inherited">
-                        <h3 class="name"><code>targetObject</code></h3>
-                        <span class="type"><a href="https://github.com/emberjs/ember.js/blob/v2.2.0classes/Ember.Controller.html" class="crosslink external" target="_blank">Ember.Controller</a></span>
-                    
-                    
-                            <span class="flag private">private</span>
-                    
-                    
-                    
-                        <div class="meta">
-                                    <p>Inherited from
-                                    <a href="https://github.com/emberjs/ember.js/blob/v2.2.0classes/Ember.Component.html#property_targetObject">Ember.Component</a>:
-                            <a href="https://github.com/emberjs/ember.js/blob/v2.2.0files/packages_ember-views_lib_components_component.js.html#l180"><code>packages&#x2F;ember-views&#x2F;lib&#x2F;components&#x2F;component.js:180</code></a>
-                            </p>
-                    
-                    
-                        </div>
-                    
-                        <div class="description">
-                            If the component is currently inserted into the DOM of a parent view, this
-                    property will point to the controller of the parent view.
-                        </div>
-                    
-                            <p><strong>Default:</strong> null</p>
-                    
-                    
-                    </div>
-                    <div id="property_width" class="property item public">
-                        <h3 class="name"><code>width</code></h3>
-                        <span class="type">Integer</span>
+                    <div id="property_isDestroyed" class="property item public inherited">
+                        <h3 class="name"><code>isDestroyed</code></h3>
+                        <span class="type">Unknown</span>
                     
                     
                             <span class="flag public">public</span>
@@ -3889,19 +3892,51 @@
                     
                     
                         <div class="meta">
-                                    <p>
-                                    Defined in
-                            <a href="../files/addon_components_fabric-canvas_component.js.html#l43"><code>addon&#x2F;components&#x2F;fabric-canvas&#x2F;component.js:43</code></a>
+                                    <p>Inherited from
+                                    <a href="https://github.com/emberjs/ember.js/blob/v2.2.0classes/Ember.CoreObject.html#property_isDestroyed">Ember.CoreObject</a>:
+                            <a href="https://github.com/emberjs/ember.js/blob/v2.2.0files/packages_ember-runtime_lib_system_core_object.js.html#l411"><code>packages&#x2F;ember-runtime&#x2F;lib&#x2F;system&#x2F;core_object.js:411</code></a>
                             </p>
                     
                     
                         </div>
                     
                         <div class="description">
-                            <p>The <code>HTML</code> <code>height</code> of the fabric canvas.</p>
+                            Destroyed object property flag.
+                    
+                    if this property is <code>true</code> the observers and bindings were already
+                    removed by the effect of calling the <code>destroy()</code> method.
+                        </div>
+                    
+                            <p><strong>Default:</strong> false</p>
+                    
+                    
+                    </div>
+                    <div id="property_isDestroying" class="property item public inherited">
+                        <h3 class="name"><code>isDestroying</code></h3>
+                        <span class="type">Unknown</span>
+                    
+                    
+                            <span class="flag public">public</span>
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>Inherited from
+                                    <a href="https://github.com/emberjs/ember.js/blob/v2.2.0classes/Ember.CoreObject.html#property_isDestroying">Ember.CoreObject</a>:
+                            <a href="https://github.com/emberjs/ember.js/blob/v2.2.0files/packages_ember-runtime_lib_system_core_object.js.html#l423"><code>packages&#x2F;ember-runtime&#x2F;lib&#x2F;system&#x2F;core_object.js:423</code></a>
+                            </p>
+                    
                     
                         </div>
                     
+                        <div class="description">
+                            Destruction scheduled flag. The <code>destroy()</code> method has been called.
+                    
+                    The object stays intact until the end of the run loop at which point
+                    the <code>isDestroyed</code> flag is set.
+                        </div>
+                    
+                            <p><strong>Default:</strong> false</p>
                     
                     
                     </div>

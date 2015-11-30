@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>addon/components/fabric-canvas/component.js - Embric</title>
+    <title>addon/components/embric-static-text-editor/component.js - Embric</title>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,900,300,400italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Mono:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="">
@@ -95,79 +95,56 @@
                 <div id="docs-main">
                     <div class="content">
 <div class="page-header">
-    <h1>addon/components/fabric-canvas/component.js <small>File</small></h1>
+    <h1>addon/components/embric-static-text-editor/component.js <small>File</small></h1>
 </div>
 
 <div class="file">
     <pre class="prettyprint linenums">
 import Ember from &#x27;ember&#x27;;
+import layout from &#x27;./template&#x27;;
+import  TextSupport from &#x27;embric/mixins/text-support&#x27;;
 
 /**
-  Creates a Fabric canvas element and registers it
+  Widget that provides a &#x60;textarea&#x60; for entering/editing text, and a &#x60;select&#x60;
+  for choosing a font.
 
- Use as a block level component with any number of {{#crossLink &quot;Components.EmbricEditor&quot;}}{{/crossLink}} components as children:
+  It expects fonts to be bound to &#x60;fontList&#x60; in the following form:
 
-  ### Example
-
-  &#x60;&#x60;&#x60;htmlbars
-  \{{#embric-editor as |editor| }}
-      \{{fabric-canvas width=800 height=300 editor=editor}}
-  \{{/embric-editor}}
+  &#x60;&#x60;&#x60;javascript
+  Ember.A([
+    { cssName: &#x27;Arial Black&#x27;, displayName: &#x27;Arial Black&#x27; },
+    { cssName: &#x27;Helvetica&#x27;, displayName: &#x27;Helvetica&#x27; }
+  ])
   &#x60;&#x60;&#x60;
-  @class FabricCanvas
-  @namespace Components
-  @extends Ember.Component
-  @public
 
+  @element embric-static-text-editor
+  @uses ShapesSupport
 */
-export default Ember.Component.extend({
-  tagName: &#x27;canvas&#x27;,
-  classNameBindings: &#x27;cssClass::fabric-canvas-container&#x27;,
-  fabricCanvas: null,
+
+export default Ember.Component.extend(TextSupport, {
+  layout,
+  name: &#x27;Basic Text&#x27;,
+  animate: true,
+  text: &#x27;&#x27;,
   /**
-    Because of the way Fabric works, the &#x60;height&#x60; and &#x60;width&#x60;
-    of the canvas must be set as &#x60;HTML&#x60; attributes. &#x60;CSS&#x60;-defined
-    &#x60;height&#x60; and &#x60;width&#x60; will be ignored.
+    The list of available fonts.
 
-    @property attributeBindings
-    @type Array
-    @public
+    @property
   */
-  attributeBindings: [ &#x27;height&#x27;, &#x27;width&#x27; ],
-  /**
-    The &#x60;HTML&#x60; &#x60;height&#x60; of the fabric canvas.
-
-    @property height
-    @type Integer
-    @public
-  */
-  height: Ember.computed.oneWay(&#x27;defaultHeight&#x27;),
-  /**
-    The &#x60;HTML&#x60; &#x60;height&#x60; of the fabric canvas.
-
-    @property width
-    @type Integer
-    @public
-  */
-  width: Ember.computed.oneWay(&#x27;defaultWidth&#x27;),
-  defaultHeight: 500,
-  defaultWidth: 700,
-
-  _setup: Ember.on(&#x27;didInsertElement&#x27;, function() {
-    Ember.run.scheduleOnce(&#x27;afterRender&#x27;, () =&gt; {
-      this._setupFabric();
-    });
-  }),
-
-  _setupFabric() {
-    if (Ember.isEmpty(this.get(&#x27;fabricCanvas&#x27;))) {
-      let canvas = new window.fabric.Canvas(this.get(&#x27;elementId&#x27;));
-      canvas.renderOnAddRemove = false;
-      this.set(&#x27;fabricCanvas&#x27;, canvas);
-    }
-    let editor = this.get(&#x27;editor&#x27;);
-    editor.send(&#x27;registerCanvas&#x27;, this);
-  }
+  fontList: Ember.A([
+    { cssName: &#x27;Arial Black&#x27;, displayName: &#x27;Arial Black&#x27; },
+    { cssName: &#x27;Helvetica&#x27;, displayName: &#x27;Helvetica&#x27; },
+    { cssName: &#x27;Lucida Sans Unicode&#x27;, displayName: &#x27;Lucida Sans&#x27; },
+    { cssName: &#x27;Tahoma&#x27;, displayName: &#x27;Tahoma&#x27; },
+    { cssName: &#x27;Trebuchet&#x27;, displayName: &#x27;Trebuchet&#x27; },
+    { cssName: &#x27;Verdana&#x27;, displayName: &#x27;Verdana&#x27; },
+    { cssName: &#x27;Georgia&#x27;, displayName: &#x27;Georgia&#x27; },
+    { cssName: &#x27;Palatino Linotype&#x27;, displayName: &#x27;Palatino Linotype&#x27; },
+    { cssName: &#x27;Times New Roman&#x27;, displayName: &#x27;Times New Roman&#x27; },
+    { cssName: &#x27;Courier New&#x27;, displayName: &#x27;Courier&#x27; },
+    { cssName: &#x27;Lucida Console&#x27;, displayName: &#x27;Lucida Console&#x27; }
+  ]),
+  classNames: [&#x27;embric-control&#x27;, &#x27;embric-static-text-editor&#x27;]
 });
 
     </pre>

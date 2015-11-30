@@ -1,0 +1,8 @@
+cd ../embric
+rm -rf docs/api
+ember ember-cli-yuidoc
+cd ../website
+rm -rf api
+cp -r ../embric/docs/api .
+# git add --all; git commit -m "updated api docs"
+# git push
