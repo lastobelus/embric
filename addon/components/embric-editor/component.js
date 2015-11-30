@@ -24,30 +24,39 @@ function _emptySelection() {
   ### Example
 
   ```htmlbars
-  /{{#embric-editor as |editor| }}
+  \{{#embric-editor as |editor| }}
     <h2>Editor</h2>
-    /{{fabric-canvas width=800 height=300 editor=editor }}
+    \{{fabric-canvas width=800 height=300 editor=editor }}
     <div class="editor-controls-panel">
       <h3>Controls</h3>
       <div class="control-column">
-        /{{embric-fill-stroke-editor editor=editor}}
-        /{{embric-basic-shapes-widget editor=editor}}
-        /{{embric-static-text-editor editor=editor}}
+        \{{embric-fill-stroke-editor editor=editor}}
+        \{{embric-basic-shapes-widget editor=editor}}
+        \{{embric-static-text-editor editor=editor}}
       </div>
       <div class="control-column">
-        /{{embric-group-editor editor=editor}}
-        /{{embric-duplicate-selection editor=editor}}
-        /{{embric-delete-selection editor=editor}}
-        /{{embric-zindex-editor editor=editor}}
+        \{{embric-group-editor editor=editor}}
+        \{{embric-duplicate-selection editor=editor}}
+        \{{embric-delete-selection editor=editor}}
+        \{{embric-zindex-editor editor=editor}}
       </div>
     </div>
-  /{{/embric-editor}}
+  \{{/embric-editor}}
   ```
 
   @class EmbricEditor
   @namespace Components
   @extends Ember.Component
   @public
+*/
+/**
+  The top-level embric component, `embric-editor` contains no markup and yields an instance
+  that interface widgets can bind to.
+  When an included {{#crossLink "Elements.fabric-canvas"}}{{/crossLink}} is bound to an instance
+  of `embric-editor`, when it creates its fabric canvas it will register it with the bound editor,
+  making the fabric selection and canvas available to widgets bound to the same instance
+  of `embric-editor`.
+  @element embric-editor
 */
 export default Ember.Component.extend(ZindexSupport, {
   layout,

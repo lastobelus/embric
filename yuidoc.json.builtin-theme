@@ -1,0 +1,26 @@
+{
+  "name": "Embric",
+  "description": "A wrapper for Fabric.js, with a focus on building graphics editors.",
+  "version": "0.0.1",
+  "options": {
+    "paths": [
+      "addon"
+    ],
+    "exclude": "vendor",
+    "outdir": "docs/api",
+    "yuidoc": {
+      "linkNatives": true,
+      "quiet": true,
+      "parseOnly": false,
+      "lint": false
+    }
+  },
+  "external": {
+      "data": [
+          {
+              "base": "https://github.com/emberjs/ember.js/blob/v2.2.0",
+              "json": "http://builds.emberjs.com/tags/v2.2.0/ember-docs.json"
+          }
+      ]
+  }
+}

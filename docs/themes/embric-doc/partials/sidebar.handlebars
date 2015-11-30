@@ -2,7 +2,14 @@
     <div id="sidebar">
         <ul id="main-nav" class="nav nav-tabs" style="margin-bottom:0;">
             <li class="active"><a href="#classes" data-toggle="tab">Classes</a></li>
+
+            {{#if elements}}
+            <li ><a href="#elements" data-toggle="tab">Components</a></li>
+            {{/if}}
+
+            {{#if allModules}}
             <li><a href="#modules" data-toggle="tab">Modules</a></li>
+            {{/if}}
         </ul>
 
         <div id="api-tabview-filter">
@@ -18,6 +25,17 @@
                 </ul>
             </div>
 
+            {{#if elements}}
+              <div class="tab-pane" id="elements">
+                <ul id="api-elements" class="nav nav-list">
+                {{#elements}}
+                    <li><a href="{{../projectRoot}}elements/{{name}}.html">{{displayName}}</a></li>
+                {{/elements}}
+                </ul>
+              </div>
+            {{/if}}
+
+            {{#if allModules}}
             <div class="tab-pane" id="modules">
                 <ul id="api-modules" class="nav nav-list">
                     {{#allModules}}
@@ -25,6 +43,7 @@
                     {{/allModules}}
                 </ul>
             </div>
+            {{/if}}
         </div>
     </div>
 </div>
