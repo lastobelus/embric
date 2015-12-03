@@ -57,6 +57,7 @@ function _emptySelection() {
   making the fabric selection and canvas available to widgets bound to the same instance
   of `embric-editor`.
   @element embric-editor
+  @public
 */
 export default Ember.Component.extend(ZindexSupport, {
   layout,
@@ -97,7 +98,6 @@ export default Ember.Component.extend(ZindexSupport, {
     @public
   */
   selection: SelectionProxy.create({ selection: _emptySelection() }),
-
 
   updateSelection() {
     console.log('updateSelection');

@@ -17,17 +17,26 @@ import  TextSupport from 'embric/mixins/text-support';
 
   @element embric-static-text-editor
   @uses ShapesSupport
+  @public
 */
 
 export default Ember.Component.extend(TextSupport, {
   layout,
+  /**
+    The name of the widget (rendered as a ```<label>``` in the default template)
+
+    @attribute name
+    @default "Basic Text"
+    @type String
+    @public
+  */
   name: 'Basic Text',
-  animate: true,
   text: '',
   /**
     The list of available fonts.
 
-    @property
+    @attribute fontList
+    @public
   */
   fontList: Ember.A([
     { cssName: 'Arial Black', displayName: 'Arial Black' },

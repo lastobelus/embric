@@ -15,16 +15,25 @@ import  ShapesSupport from 'embric/mixins/shapes-support';
   ### Example
   ```htmlbars
   \{{#embric-editor as |editor| }}
-      \{{basic-shapes-widget editor=editor animated=false }}
+      \{{embric-basic-shapes-widget editor=editor animated=false }}
   \{{/embric-editor}}
   ```
 
   @element embric-basic-shapes-widget
   @uses ShapesSupport
+  @public
 */
 
 export default Ember.Component.extend(ShapesSupport, {
   layout,
+  /**
+    The name of the widget (rendered as a ```<label>``` in the default template)
+
+    @attribute name
+    @default "Add Shape"
+    @type String
+    @public
+  */
   name: 'Add Shape',
   /**
     Whether the shape is animated on to the screen.
@@ -32,6 +41,7 @@ export default Ember.Component.extend(ShapesSupport, {
     @attribute animate
     @default false
     @type boolean
+    @public
   */
   animate: false,
   selectedShape: Ember.computed.oneWay('shapesList.firstObject.fabricName'),
@@ -50,6 +60,7 @@ export default Ember.Component.extend(ShapesSupport, {
     @attribute shapesList
     @default  [{ fabricName: 'rect', displayName: 'Square' }, { fabricName: 'circle', displayName: 'Circle' }, { fabricName: 'triangle', displayName: 'Triangle' }]
     @type boolean
+    @public
   */
   shapesList: Ember.A([
     { fabricName: 'rect', displayName: 'Square' },
