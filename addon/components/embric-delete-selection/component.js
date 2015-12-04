@@ -6,6 +6,7 @@ import layout from './template';
   or multiple selection, & works when selection includes groups.
 
   ### Example
+
   ```htmlbars
   \{{#embric-editor as |editor| }}
     \{{embric-delete-selection  editor=editor animated=true}}

@@ -15,8 +15,17 @@ import  TextSupport from 'embric/mixins/text-support';
   ])
   ```
 
+  ### Example
+
+  ```htmlbars
+  \{{#embric-editor as |editor| }}
+    \{{embric-static-text-editor editor=editor  }}
+  \{{/embric-editor}}
+  ```
+
+
   @element embric-static-text-editor
-  @uses ShapesSupport
+  @uses Mixins.TextSupport
   @public
 */
 

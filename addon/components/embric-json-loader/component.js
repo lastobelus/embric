@@ -1,6 +1,21 @@
 import Ember from 'ember';
 import layout from './template';
 
+/**
+  Widget that provides the ability to manually deserialize the current canvas to
+  JSON, or to load fabric JSON to the current canvas.
+
+  ### Example
+
+  ```htmlbars
+  \{{#embric-editor as |editor| }}
+    \{{embric-json-loader editor=editor  }}
+  \{{/embric-editor}}
+  ```
+
+  @element embric-json-loader
+  @public
+*/
 export default Ember.Component.extend({
   layout,
   /**

@@ -13,6 +13,7 @@ import  ShapesSupport from 'embric/mixins/shapes-support';
   fit in a 50px square bounds.
 
   ### Example
+
   ```htmlbars
   \{{#embric-editor as |editor| }}
       \{{embric-basic-shapes-widget editor=editor animated=false }}
@@ -27,7 +28,7 @@ import  ShapesSupport from 'embric/mixins/shapes-support';
 export default Ember.Component.extend(ShapesSupport, {
   layout,
   /**
-    The name of the widget (rendered as a ```<label>``` in the default template)
+    The name of the widget (rendered as a `<label>` in the default template)
 
     @attribute name
     @default "Add Shape"
@@ -50,7 +51,7 @@ export default Ember.Component.extend(ShapesSupport, {
     array of objects with two properties: `fabricName`, and `displayName`:
 
     ```javascript
-   Ember.A([
+    Ember.A([
       { fabricName: 'rect', displayName: 'Square' },
       { fabricName: 'circle', displayName: 'Circle' },
       { fabricName: 'triangle', displayName: 'Triangle' }

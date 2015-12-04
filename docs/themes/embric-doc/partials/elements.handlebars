@@ -87,7 +87,10 @@
             <li><a data-toggle="tab" href="#properties">Properties</a></li>
         {{/if}}
         {{#if attrs}}
-            <li><a data-toggle="tab" href="#attrs">Attributes</a></li>
+            <li><a data-toggle="tab" href="#attrs">Attrs</a></li>
+        {{/if}}
+        {{#if attributes}}
+            <li><a data-toggle="tab" href="#attributes">Attributes</a></li>
         {{/if}}
         {{#if events}}
             <li><a data-toggle="tab" href="#events">Events</a></li>
@@ -154,6 +157,20 @@
                 </div>
             {{/if}}
 
+            {{#if attributes}}
+                <div class="index-section attributes">
+                    <h3>Attributes</h3>
+
+                    <ul class="index-list attributes{{#if extends}} extends{{/if}}">
+                        {{#attributes}}
+                            <li class="index-item attribute{{#if access}} {{access}}{{/if}}{{#if deprecated}} deprecated{{/if}}{{#if overwritten_from}} inherited{{/if}}{{#if extended_from}} inherited{{/if}}">
+                                <a href="#" data-tabid="#attributes" data-anchor="#attribute_{{name}}" data-tablink="{{name}}">{{name}}</a>
+                            </li>
+                        {{/attributes}}
+                    </ul>
+                </div>
+            {{/if}}
+
             {{#if events}}
                 <div class="index-section events">
                     <h3>Events</h3>
@@ -203,6 +220,16 @@
                 {{#attrs}}
                     {{>attrs}}
                 {{/attrs}}
+            </div>
+        {{/if}}
+
+        {{#if attributes}}
+            <div id="attributes" class="tab-pane">
+                <h2 class="off-left">Attributes</h2>
+
+                {{#attributes}}
+                    {{>attributes}}
+                {{/attributes}}
             </div>
         {{/if}}
 
